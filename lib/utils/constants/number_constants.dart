@@ -117,6 +117,7 @@ class NumberConstant {
   static const double doubleSix = 6.0;
   static const double doubleSixPointFive = 6.5;
   static const double doublePointNinety = 0.90;
+  static const double doublePointZeroZeroNine = 0.009;
 
   static const double doubleSeven = 7.0;
   static const double doubleEight = 8.0;

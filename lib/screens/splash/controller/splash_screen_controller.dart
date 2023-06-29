@@ -8,14 +8,12 @@ import 'package:meet_well/utils/constants/string_constants.dart';
 
 class SplashScreenController {
   DefaultGroupResponse? defaultGroupResponse;
-
   //TODO Static api calling for only validation
   Future<DefaultGroupResponse> makeApiCall() async {
     const url =
-        'https://your-api-endpoint.com'; // Replace with your API endpoint
+        'https://jsonplaceholder.typicode.com/posts'; // Replace with your API endpoint
     try {
       final response = await http.get(Uri.parse(url));
-
       if (response.statusCode == NumberConstant.intTwoHundred) {
         var staticDefaultGroupResponse = readJson;
         defaultGroupResponse = DefaultGroupResponse.fromJson(jsonDecode(staticDefaultGroupResponse.toString()));
@@ -36,6 +34,7 @@ class SplashScreenController {
   ///Read convert json file to string
   Future<String> readJson() async {
     final String response = await rootBundle.loadString(StringConstant.jsonDefaultGroup);
+    print(response);
     return response;
   }
 }
