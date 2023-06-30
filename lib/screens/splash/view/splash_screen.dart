@@ -69,7 +69,7 @@ class _SplashScreenState extends State<SplashScreen>
           );
         } else {
           DefaultGroupResponse? defaultGroupResponse = snapshot.data;
-          if (defaultGroupResponse?.data?.defaultGroup?.isEmpty == StringConstant.boolTrue) {
+          if (defaultGroupResponse?.data?.defaultGroup == null) {
             Future.delayed(Duration.zero, () {
               Navigator.pushNamed(context, routes.login);
             });
