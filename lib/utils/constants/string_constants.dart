@@ -26,7 +26,7 @@ class StringConstant {
 
   //Login Screen Constants
   static const String textPhoneNumber = 'Phone Number';
-  static const String textCountryCode = 'IN';
+  static const String textCountry = 'IN';
   static const String textSubmit = "Submit";
   static const String textPrivacyTermsConditions ="Privacy Policy,Terms & Conditions";
   static const String textLogin ="Login";
@@ -35,6 +35,6 @@ class StringConstant {
   static const String textNumber = "Number";
   static const String textWeWillSendYouAVerification = "We Will Send You A Verification";
   static const String textCode = "Code";
-
+ static const String textCountryCode ="+91";
 
 }

@@ -5,11 +5,11 @@ import 'package:meet_well/utils/constants/number_constants.dart';
 import 'package:meet_well/utils/constants/string_constants.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:provider/provider.dart';
-
+import 'package:meet_well/utils/route/route.dart' as routes;
 import '../controller/login_controller.dart';
 
 class LoginScreen extends StatefulWidget {
-   LoginScreen({super.key});
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -22,11 +22,10 @@ class _LoginScreenState extends State<LoginScreen> {
     // TODO: implement initState
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      numberProvider  =  Provider.of<NumberProvider>(context, listen: false);
-       });
-
-
+      numberProvider = Provider.of<NumberProvider>(context, listen: false);
+    });
   }
+
   final GlobalKey<FormState> _phoneNumberValidation = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -117,7 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Form(
                       key: _phoneNumberValidation,
                       child: IntlPhoneField(
-                        controller:numberProvider?.phoneNumberController,
+                        controller: numberProvider?.phoneNumberController,
                         decoration: const InputDecoration(
                           fillColor: Colors.black12,
                           filled: true,
@@ -129,15 +128,14 @@ class _LoginScreenState extends State<LoginScreen> {
                             borderSide: BorderSide(),
                           ),
                         ),
-                        initialCountryCode: StringConstant.textCountryCode,
+                        initialCountryCode: StringConstant.textCountry,
                         onChanged: (phone) {
                           setState(() {
+                            numberProvider?.countryCode = phone.countryCode;
+                            numberProvider?.number = phone.number;
                             if (phone.number.length ==
                                 NumberConstant.doubleTen) {
                               FocusScope.of(context).unfocus();
-                              if(phone.countryCode == "+91"){
-                                numberProvider?.numberProvider();
-                              }
                             }
                           });
                         },
@@ -152,9 +150,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: ElevatedButton(
                         onPressed: () {
                           if (_phoneNumberValidation.currentState!.validate()) {
-                            print(
-                                "object${MediaQuery.of(context).size.height}");
-                     print(numberProvider?.number);
+                            if (numberProvider?.countryCode ==
+                                StringConstant.textCountryCode) {
+                              Navigator.pushNamed(context, routes.dashboard);
+                            }
                           }
                         },
                         style: ButtonStyle(
@@ -164,7 +163,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           padding: EdgeInsets.symmetric(
                               horizontal: NumberConstant.doubleEighty),
                           child: Text(
-                           StringConstant.textSubmit,
+                            StringConstant.textSubmit,
                             style: TextStyle(color: Colors.black),
                           ),
                         )),

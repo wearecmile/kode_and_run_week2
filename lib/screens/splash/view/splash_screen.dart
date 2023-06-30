@@ -68,6 +68,7 @@ class _SplashScreenState extends State<SplashScreen>
           );
         } else {
           defaultGroupResponse = snapshot.data;
+          ///Sorry Kashmira mam
          // if (defaultGroupResponse?.data?.defaultGroup?.isEmpty == StringConstant.boolTrue){
           if(true){
             print(snapshot.data?.data?.defaultGroup);

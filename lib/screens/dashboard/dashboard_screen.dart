@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../login/controller/login_controller.dart';
 
 class DashboardScreen extends StatefulWidget {
   @override
@@ -11,7 +14,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text("Dashboard"),
+        title: Text("Dashboard${Provider.of<NumberProvider>(context, listen: false).countryCode}"),
       ),
     );
   }
