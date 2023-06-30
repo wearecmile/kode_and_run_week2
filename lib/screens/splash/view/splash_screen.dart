@@ -27,14 +27,12 @@ class _SplashScreenState extends State<SplashScreen>
       duration: Duration(seconds: NumberConstant.intTen),
       vsync: this,
     );
-
     _animation = Tween<double>(begin: NumberConstant.doubleZero, end: NumberConstant.doubleOne).animate(
       CurvedAnimation(
         parent: _animationController!,
         curve: Curves.fastLinearToSlowEaseIn,
       ),
     );
-
     _animationController?.repeat(reverse: StringConstant.boolFalse);
   }
 
