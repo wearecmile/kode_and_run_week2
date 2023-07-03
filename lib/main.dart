@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:meet_well/main/provider/main_provider.dart';
-import 'package:meet_well/screens/dashboard/dashboard_screen.dart';
-import 'package:meet_well/screens/login/login_screen.dart';
+import 'package:meet_well/screens/Dashboard_Screen/controller.dart';
 import 'package:meet_well/screens/Dashboard_Screen/view.dart';
+import 'package:meet_well/screens/group_details_screen/view.dart';
+import 'package:meet_well/screens/notification_screen/view.dart';
+import 'package:meet_well/screens/profile_details_screen/view.dart';
 import 'package:meet_well/screens/splash/view/splash_screen.dart';
+import 'package:meet_well/screens/transaction_screen/view.dart';
 import 'package:meet_well/utils/route/route.dart' as routes;
 import 'package:provider/provider.dart';
-
 import 'main/navigation/bottomNavigationController.dart';
 
 import 'screens/splash/controller/splash_screen_controller.dart';
@@ -23,26 +25,24 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<MainProvider>(create: (context) => MainProvider(),),
-        ChangeNotifierProvider<BottomNavigationController>(create: (context) => BottomNavigationController(),),
+        ChangeNotifierProvider<MainProvider>(
+          create: (context) => MainProvider(),
+        ),
+        ChangeNotifierProvider<BottomNavigationController>(
+          create: (context) => BottomNavigationController(),
+        ),
         ChangeNotifierProvider<MainProvider>(
           create: (context) => MainProvider(),
         ),
         Provider<SplashScreenController>(
             create: (_) => SplashScreenController()),
+        ChangeNotifierProvider<DashboardScreenController>(
+          create: (context) => DashboardScreenController(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          // This is the theme of your application.
-          //
-          // Try running your application with "flutter run". You'll see the
-          // application has a blue toolbar. Then, without quitting the app, try
-          // changing the primarySwatch below to Colors.green and then invoke
-          // "hot reload" (press "r" in the console where you ran "flutter run",
-          // or simply save your changes to "hot reload" in a Flutter IDE).
-          // Notice that the counter didn't reset back to zero; the application
-          // is not restarted.
           fontFamily: 'poppins',
           useMaterial3: true,
           primarySwatch: Colors.blue,
@@ -51,9 +51,12 @@ class MyApp extends StatelessWidget {
         initialRoute: routes.splash,
 
         ///Routes
-        routes: <String, WidgetBuilder>{
-          '/login': (BuildContext context) => LoginScreen(),
-          '/dashboard': (BuildContext context) => DashboardScreen()
+        routes: {
+          routes.dashboard: (context) => const Dashboard(),
+          routes.transactions: (context) => const Transaction(),
+          routes.notifications: (context) => const Notifications(),
+          routes.groupDetails: (context) => const Group_details(),
+          routes.profileScreen: (context) => const Profile_details(),
         },
 
         /// Passing Data as Arguments to screens

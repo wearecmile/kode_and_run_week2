@@ -1,19 +1,36 @@
 import 'package:flutter/material.dart';
-
-import '../../screens/Dashboard_Screen/view.dart';
-
+import 'package:meet_well/utils/route/route.dart' as routes;
+import '../../utils/constants/string_constants.dart';
 
 class BottomNavigationController extends ChangeNotifier {
- final List tabs = [
-    (title:"",icon: Icons.home_outlined, destination: const Dashboard()),
-    (title:"",icon: Icons.currency_rupee_sharp, destination: const Dashboard()),
-    (title:"",icon: Icons.notifications_none_rounded, destination: const Dashboard()),
-    (title:"",icon: Icons.groups_outlined, destination: const Dashboard()),
+  final List tabs = [
+    (
+      title: StringConstant.textDashboard,
+      icon: StringConstant.iconHome,
+      destination: routes.dashboard
+    ),
+    (
+      title: StringConstant.textTransactions,
+      icon: StringConstant.iconTransaction,
+      destination: routes.transactions
+    ),
+    (
+      title: StringConstant.textNotifications,
+      icon: StringConstant.iconNotifications,
+      destination: routes.notifications
+    ),
+    (
+      title: StringConstant.textGroupDetails,
+      icon: StringConstant.icongroupdetails,
+      destination: routes.groupDetails
+    ),
   ];
- int currentIndex = 0;
- void onTabChanged(int index,BuildContext context) {
+  int currentIndex = 0;
+  void onTabChanged(int index, BuildContext context) {
     currentIndex = index;
-    Navigator.push(context,MaterialPageRoute(builder: (context) => tabs[index].destination),
-    );
+    Navigator.pushNamed(context, tabs[index].destination);
+  }
+  void onLongPress (int index, BuildContext context) {
+
   }
 }

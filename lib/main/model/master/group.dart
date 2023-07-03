@@ -2,6 +2,7 @@
 import 'package:meet_well/main/model/master/user.dart';
 
 import 'group_settings.dart';
+import 'meeting.dart';
 
 class Group {
   String? id;
@@ -10,6 +11,7 @@ class Group {
   String? imageURL;
   GroupSettings? groupSettings;
   List<User>? listOfMembers;
+  List<Meeting>? listOfMeetings;
 
   Group(
       {this.id,
@@ -17,7 +19,9 @@ class Group {
       this.groupDescription,
       this.imageURL,
       this.groupSettings,
-      this.listOfMembers});
+      this.listOfMembers,
+      this.listOfMeetings
+      });
 
   Group.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -25,12 +29,18 @@ class Group {
     groupDescription = json['groupDescription'];
     imageURL = json['imageURL'];
     groupSettings = json['groupSettings'] != null
-        ? new GroupSettings.fromJson(json['groupSettings'])
+        ? GroupSettings.fromJson(json['groupSettings'])
         : null;
     if (json['listOfMembers'] != null) {
       listOfMembers = <User>[];
       json['listOfMembers'].forEach((v) {
-        listOfMembers!.add(new User.fromJson(v));
+        listOfMembers!.add(User.fromJson(v));
+      });
+    }
+    if (json['listOfMeetings'] != null) {
+      listOfMeetings = <Meeting>[];
+      json['listOfMeetings'].forEach((v) {
+        listOfMeetings!.add(Meeting.fromJson(v));
       });
     }
   }
@@ -47,6 +57,10 @@ class Group {
     if (this.listOfMembers != null) {
       data['listOfMembers'] =
           this.listOfMembers!.map((v) => v.toJson()).toList();
+    }
+    if (this.listOfMeetings != null) {
+      data['listOfMeetings'] =
+          this.listOfMeetings!.map((v) => v.toJson()).toList();
     }
     return data;
   }

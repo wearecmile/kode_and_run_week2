@@ -1,0 +1,45 @@
+{
+  "status": "ok",
+  "statusCode" : 200,
+  "message":"details fetched successfully",
+  "data": {
+    "id": "12345",
+    "groupName": "Cmile",
+    "listOfMeeting": [{
+        "id": "12we34er45",
+        "title": "project management",
+        "location": "pune",
+        "date": "19/02/2023",
+        "time":" 23:23:23"
+    },
+      {
+        "id": "12we34er45",
+        "title": "project meetings",
+        "location": "mumbai",
+        "date": "19/02/2023",
+        "time":"11:15 am"
+      },
+      {
+        "id": "12we34er45",
+        "title": "project management",
+        "location": "pune",
+        "date": "19/02/2023",
+        "time":" 23:23:23"
+      },
+      {
+        "id": "12we34er45",
+        "title": "project management",
+        "location": "pune",
+        "date": "19/02/2023",
+        "time":" 23:23:23"
+      },
+      {
+        "id": "12we34er45",
+        "title": "project management",
+        "location": "pune",
+        "date": "19/02/2023",
+        "time":" 23:23:23"
+      }
+    ]
+  }
+}

@@ -7,7 +7,8 @@ class Meeting {
   String? id;
   String? title;
   String? location;
-  String? dateTime;
+  String? date;
+  String? time;
   int? feesPerPerson;
   MeetingSettings? meetingSettings;
   List<User>? listOfMembers;
@@ -17,17 +18,20 @@ class Meeting {
       {this.id,
       this.title,
       this.location,
-      this.dateTime,
+      this.date,
+        this.time,
       this.feesPerPerson,
       this.meetingSettings,
       this.listOfMembers,
       this.listOfVisitors});
 
   Meeting.fromJson(Map<String, dynamic> json) {
+
     id = json['id'];
     title = json['title'];
     location = json['location'];
-    dateTime = json['dateTime'];
+    date = json['date'];
+    time =json['time'];
     feesPerPerson = json['feesPerPerson'];
     meetingSettings = json['meetingSettings'] != null
         ? new MeetingSettings.fromJson(json['meetingSettings'])
@@ -48,21 +52,22 @@ class Meeting {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['title'] = this.title;
-    data['location'] = this.location;
-    data['dateTime'] = this.dateTime;
-    data['feesPerPerson'] = this.feesPerPerson;
-    if (this.meetingSettings != null) {
-      data['meetingSettings'] = this.meetingSettings!.toJson();
+    data['id'] = id;
+    data['title'] = title;
+    data['location'] = location;
+    data['date'] = date;
+    data['time'] = time;
+    data['feesPerPerson'] = feesPerPerson;
+    if (meetingSettings != null) {
+      data['meetingSettings'] = meetingSettings!.toJson();
     }
-    if (this.listOfMembers != null) {
+    if (listOfMembers != null) {
       data['listOfMembers'] =
-          this.listOfMembers!.map((v) => v.toJson()).toList();
+          listOfMembers!.map((v) => v.toJson()).toList();
     }
-    if (this.listOfVisitors != null) {
+    if (listOfVisitors != null) {
       data['listOfVisitors'] =
-          this.listOfVisitors!.map((v) => v.toJson()).toList();
+          listOfVisitors!.map((v) => v.toJson()).toList();
     }
     return data;
   }
