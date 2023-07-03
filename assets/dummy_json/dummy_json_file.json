@@ -1,0 +1,10 @@
+{
+  "status": "ok",
+  "statusCode": 200,
+  "message": "Details Fetched Successfully",
+  "data": {
+    "id": "q1234",
+    "phoneNumber": 9067708230,
+    "default_group": ""
+  }
+}
