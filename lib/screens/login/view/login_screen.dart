@@ -36,7 +36,6 @@ class _LoginScreenState extends State<LoginScreen> {
         child: SizedBox(
           height: MediaQuery.of(context).size.height,
           child: Column(
-              //  mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Card(
                   shape: const RoundedRectangleBorder(
@@ -183,7 +182,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height *
-                        NumberConstant.doublePointFourteen,
+                        NumberConstant.doublePointEighteen,
                   ),
                   InkWell(
                     onTap: () {},
