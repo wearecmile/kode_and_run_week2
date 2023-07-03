@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
     _animationController = AnimationController(
-      duration: Duration(seconds: NumberConstant.intTen),
+      duration: const Duration(seconds: NumberConstant.intTen),
       vsync: this,
     );
 
@@ -69,7 +69,8 @@ class _SplashScreenState extends State<SplashScreen>
           );
         } else {
           DefaultGroupResponse? defaultGroupResponse = snapshot.data;
-          if (defaultGroupResponse?.data?.defaultGroup == null) {
+          if (defaultGroupResponse?.data?.defaultGroup ==
+              StringConstant.textEmpty) {
             Future.delayed(Duration.zero, () {
               Navigator.pushNamed(context, routes.login);
             });

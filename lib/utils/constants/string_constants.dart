@@ -22,5 +22,10 @@ class StringConstant {
   static const String icMeetWellLogo = "assets/svg/ic_meet_well_logo.svg";
 
   //Json File
-  static const String jsonDefaultGroup = "assets/dummy_json/dummy_json_file.json";
+  static const String jsonDefaultGroup =
+      "assets/dummy_json/dummy_json_file.json";
+
+  //Screen Name
+  static const String textLogin = "Login";
+  static const String textDashboard = "Dashboard";
 }

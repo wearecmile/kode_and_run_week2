@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:meet_well/screens/splash/model/default_group_response.dart';
+import 'package:meet_well/utils/constants/api_constants.dart';
 import 'package:meet_well/utils/constants/number_constants.dart';
 import 'package:meet_well/utils/constants/string_constants.dart';
 
@@ -11,14 +12,14 @@ class SplashScreenController {
 
   //TODO Static api calling for only validation
   Future<DefaultGroupResponse> makeApiCall() async {
-    const url =
-        'https://your-api-endpoint.com'; // Replace with your API endpoint
+    const url = ApiConstants.dummyBaseURL; // Replace with your API endpoint
     try {
       final response = await http.get(Uri.parse(url));
 
       if (response.statusCode == NumberConstant.intTwoHundred) {
-        var staticDefaultGroupResponse = readJson();
-        defaultGroupResponse = DefaultGroupResponse.fromJson(staticDefaultGroupResponse as Map<String, dynamic>);
+        var staticDefaultGroupResponse = await readJson();
+        defaultGroupResponse = DefaultGroupResponse.fromJson(
+            jsonDecode(staticDefaultGroupResponse.toString()));
         return defaultGroupResponse!;
       } else {
         ///Error Response
@@ -34,8 +35,9 @@ class SplashScreenController {
   }
 
   ///Read convert json file to string
-  Future<String> readJson() async {
-    final String response = await rootBundle.loadString(StringConstant.jsonDefaultGroup);
+  Future<dynamic> readJson() async {
+    final String response =
+        await rootBundle.loadString(StringConstant.jsonDefaultGroup);
     return response;
   }
 }
