@@ -15,8 +15,8 @@ class SplashScreenController {
     try {
       final response = await http.get(Uri.parse(url));
       if (response.statusCode == NumberConstant.intTwoHundred) {
-        var staticDefaultGroupResponse = readJson;
-        defaultGroupResponse = DefaultGroupResponse.fromJson(jsonDecode(staticDefaultGroupResponse.toString()));
+        var staticDefaultGroupResponse = readJson();
+        defaultGroupResponse = DefaultGroupResponse.fromJson(staticDefaultGroupResponse as Map<String, dynamic>);
         return defaultGroupResponse!;
       } else {
         ///Error Response

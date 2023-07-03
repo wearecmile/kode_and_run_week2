@@ -18,7 +18,6 @@ class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
   AnimationController? _animationController;
   Animation<double>? _animation;
-  DefaultGroupResponse? defaultGroupResponse;
 
   @override
   void initState() {
@@ -67,11 +66,8 @@ class _SplashScreenState extends State<SplashScreen>
             ),
           );
         } else {
-          defaultGroupResponse = snapshot.data;
-          ///Sorry Kashmira mam
-         // if (defaultGroupResponse?.data?.defaultGroup?.isEmpty == StringConstant.boolTrue){
-          if(true){
-            print(snapshot.data?.data?.defaultGroup);
+          DefaultGroupResponse? defaultGroupResponse = snapshot.data;
+          if (defaultGroupResponse?.data?.defaultGroup == null) {
             Future.delayed(Duration.zero, () {
               Navigator.pushNamed(context, routes.login);
             });
