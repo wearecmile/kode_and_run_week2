@@ -41,7 +41,7 @@ dependencies:
   http: 0.13.6
   path_provider: ^2.0.15
   provider: ^6.0.5
-  intl_phone_field: ^3.2.0
+  intl_phone_field: ^3.2.0  # Used for Number With Country Code TextField In Login Screen
 
 dev_dependencies:
   flutter_test:
