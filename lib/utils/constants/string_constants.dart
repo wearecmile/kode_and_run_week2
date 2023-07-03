@@ -37,4 +37,10 @@ class StringConstant {
   static const String textCode = "Code";
  static const String textCountryCode ="+91";
 
+  static const String jsonDefaultGroup =
+      "assets/dummy_json/dummy_json_file.json";
+
+  //Screen Name
+  static const String textLogin = "Login";
+  static const String textDashboard = "Dashboard";
 }
