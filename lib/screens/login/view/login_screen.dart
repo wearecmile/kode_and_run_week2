@@ -3,8 +3,10 @@ import 'package:flutter_svg/svg.dart';
 import 'package:meet_well/utils/constants/number_constants.dart';
 import 'package:meet_well/utils/constants/string_constants.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:meet_well/utils/constants/style_constants.dart';
 import 'package:provider/provider.dart';
 import 'package:meet_well/utils/route/route.dart' as routes;
+import '../../../utils/constants/color_constants.dart';
 import '../controller/login_controller.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -15,13 +17,14 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  NumberProvider? numberProvider;
+  LoginController? numberProvider;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      numberProvider = Provider.of<NumberProvider>(context, listen: false);
+      numberProvider = Provider.of<LoginController>(context,
+          listen: StringConstant.boolFalse);
     });
   }
 
@@ -33,7 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: SizedBox(
           height: MediaQuery.of(context).size.height,
           child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              //  mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Card(
                   shape: const RoundedRectangleBorder(
@@ -51,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(
-                                top: NumberConstant.doubleThirty,
+                                top: NumberConstant.doubleFifty,
                                 bottom: NumberConstant.doubleTwenty),
                             child: Center(
                                 child: SvgPicture.asset(
@@ -81,29 +84,26 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: MediaQuery.of(context).size.height *
                         NumberConstant.doublePointZeroSeven,
                   ),
-                  const Center(
+                   Center(
                     child: Text(StringConstant.textEnterYourMobile,
-                        style: TextStyle(
-                            fontSize: NumberConstant.doubleThirty,
-                            fontWeight: FontWeight.bold)),
+                        style: AppStyle.enterMobileNumber()
+                    ),
                   ),
-                  const Center(
+                   Center(
                     child: Text(StringConstant.textNumber,
-                        style: TextStyle(
-                            fontSize: NumberConstant.doubleThirty,
-                            fontWeight: FontWeight.bold)),
+                        style:AppStyle.enterMobileNumber()),
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height *
                         NumberConstant.doublePointZeroZeroNine,
                   ),
-                  const Center(
+                   Center(
                     child: Text(StringConstant.textWeWillSendYouAVerification,
-                        style: TextStyle(fontWeight: FontWeight.w500)),
+                        style: AppStyle.verificationTextStyle()),
                   ),
-                  const Center(
+                   Center(
                     child: Text(StringConstant.textCode,
-                        style: TextStyle(fontWeight: FontWeight.w500)),
+                        style: AppStyle.verificationTextStyle()),
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height *
@@ -115,17 +115,20 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Form(
                       key: _phoneNumberValidation,
                       child: IntlPhoneField(
+                        flagsButtonPadding: const EdgeInsets.only(
+                            top: NumberConstant.doubleEighteen,
+                            bottom: NumberConstant.doubleEighteen),
                         controller: numberProvider?.phoneNumberController,
                         decoration: const InputDecoration(
+                          border: InputBorder.none,
+                          contentPadding:
+                              EdgeInsets.all(NumberConstant.doubleEight),
                           fillColor: Colors.black12,
-                          filled: true,
+                          filled: StringConstant.boolTrue,
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: Colors.grey),
                           ),
                           labelText: StringConstant.textPhoneNumber,
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide(),
-                          ),
                         ),
                         initialCountryCode: StringConstant.textCountry,
                         onChanged: (phone) {
@@ -148,36 +151,48 @@ class _LoginScreenState extends State<LoginScreen> {
                   Center(
                     child: ElevatedButton(
                         onPressed: () {
-                          if (_phoneNumberValidation.currentState!.validate()) {
+                          if (_phoneNumberValidation.currentState?.validate() ??
+                              StringConstant.boolFalse) {
                             if (numberProvider?.countryCode ==
                                 StringConstant.textCountryCode) {
                               Navigator.pushNamed(context, routes.dashboard);
                             }
                           }
                         },
-                        style: ButtonStyle(
-                            backgroundColor: MaterialStateColor.resolveWith(
-                                (states) => Colors.blue.shade50)),
+                        style: ElevatedButton.styleFrom(
+                            elevation: NumberConstant.doubleZero,
+                            backgroundColor: buttonColor,
+                            padding: const EdgeInsets.symmetric(
+                                vertical: NumberConstant.doubleThirteen,
+                                horizontal: NumberConstant.doubleTwentyFive),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                  NumberConstant.doubleThirty),
+                            )),
                         child: const Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal: NumberConstant.doubleEighty),
                           child: Text(
                             StringConstant.textSubmit,
-                            style: TextStyle(color: Colors.black),
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         )),
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height *
-                        NumberConstant.doublePointOne,
+                        NumberConstant.doublePointFourteen,
                   ),
                   InkWell(
                     onTap: () {},
                     child: const Text(
                       StringConstant.textPrivacyTermsConditions,
                       style: TextStyle(
-                        decoration: TextDecoration.underline,
-                        color: Colors.blue,
+                        color: Colors.blueAccent,
+                        fontSize: NumberConstant.doubleFifteen,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),

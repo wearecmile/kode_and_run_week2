@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class NumberProvider extends ChangeNotifier {
+class LoginController extends ChangeNotifier {
   TextEditingController phoneNumberController = TextEditingController();
   String? countryCode;
   String? number;
@@ -11,5 +11,4 @@ class NumberProvider extends ChangeNotifier {
     super.dispose();
     phoneNumberController.dispose();
   }
-
 }
