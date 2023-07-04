@@ -17,8 +17,8 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   List<Meeting> meetings = [];
-  String groupName = " ";
-  bool isCaptain = true;
+  String groupName = StringConstant.textEmpty;
+  bool isCaptain = StringConstant.boolTrue;
   @override
   void initState() {
     // TODO: implement initState
@@ -31,7 +31,7 @@ class _DashboardState extends State<Dashboard> {
     return Scaffold(
       backgroundColor: whiteColor,
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        automaticallyImplyLeading: StringConstant.boolFalse,
         backgroundColor: whiteColor,
         title: Image.asset(StringConstant.logo),
         centerTitle: StringConstant.boolTrue,
@@ -85,7 +85,7 @@ class _DashboardState extends State<Dashboard> {
               ],
             ),
 
-            (meetings.length > 0)
+            (meetings.length > NumberConstant.intZero)
                 ? meetingCard()
                 : const SizedBox(
                     height: NumberConstant.doubleForty,
@@ -118,7 +118,7 @@ class _DashboardState extends State<Dashboard> {
     return ListView.builder(
       physics: const NeverScrollableScrollPhysics(),
       scrollDirection: Axis.vertical,
-      shrinkWrap: true,
+      shrinkWrap: StringConstant.boolTrue,
       itemCount: meetings.length,
       itemBuilder: (context, index) {
         return InkWell(
@@ -182,7 +182,7 @@ class _DashboardState extends State<Dashboard> {
   }
 
   void callGetAllMeetings() async {
-    Provider.of<DashboardScreenController>(context, listen: false)
+    Provider.of<DashboardScreenController>(context, listen: StringConstant.boolFalse)
         .getMeetingDetails()
         .then((value) => {
               formatMeetings(value),

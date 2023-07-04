@@ -39,6 +39,7 @@ const postTitleTextColor = whiteColor;
 const postSubTitleTextColor = listTextSecondaryColor;
 const textBackGroundContainer = Color(0xff3a3a3a);
 
+
 //home Bottom sheet
 const bottomSheetStartColor = gradientDarkBlue;
 const bottomSheetEndColor = Color(0xFF211148);
@@ -47,6 +48,9 @@ const chatScreenBackgroundColor = Color(0x171c31);
 const chatScreenSecondBackgroundColor = Color(0x1c1434);
 const cardColor = Color(0xFF13161A);
 const backgroudColor = Color(0xFFECEFF1);
+const buttonColor =  Color(0xFF6200EE);
+const buttonBackGroundColor = Color(0xFFE6E0E9);
+
 
 extension HexColor on Color {
   /// String is in the format "aabbcc" or "ffaabbcc" with an optional leading "#".
