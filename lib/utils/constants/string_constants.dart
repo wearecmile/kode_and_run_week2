@@ -40,4 +40,11 @@ class StringConstant {
 
   //Screen Name
   static const String textDashboard = "Dashboard";
+
+  //Registration Screen
+  static const String textAddMemberDetail =  "Add Member Details";
+  static const String textEdit = "Edit";
+  static const String textFullName = "Full Name";
+  static const String textEmail = "Email";
+
 }

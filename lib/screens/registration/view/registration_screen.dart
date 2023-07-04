@@ -1,79 +1,113 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
+import '../../../utils/constants/color_constants.dart';
+import '../../../utils/constants/enum_constants.dart';
+import '../../../utils/constants/number_constants.dart';
+import '../../../utils/constants/string_constants.dart';
+import '../../../utils/constants/util.dart';
 import '../../../utils/widgets/custom_textfield.dart';
+import '../controller/registration_controller.dart';
 
-class RegistrationScreen extends StatefulWidget {
-  const RegistrationScreen({super.key});
+class RegistrationScreen extends StatelessWidget {
+   RegistrationScreen({super.key});
+  RegistrationController? registrationController;
 
-  @override
-  State<RegistrationScreen> createState() => _RegistrationScreenState();
-}
-
-class _RegistrationScreenState extends State<RegistrationScreen> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController numberController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    registrationController = Provider.of<RegistrationController>(context,
+        listen: StringConstant.boolFalse);
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Add Member details"),
+        backgroundColor: Colors.transparent,
+        title: const Text(StringConstant.textAddMemberDetail),
         actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 10),
-            child: InkWell(
-              onTap: (){},
-              child: Text("Edit",style: TextStyle(fontSize: 20,color: Colors.blue),),
+          InkWell(
+            onTap: () {},
+            child: const Text(
+              StringConstant.textEdit,
+              style: TextStyle(
+                  fontSize: NumberConstant.doubleTwenty, color: Colors.blue),
             ),
           ),
         ],
       ),
       body: SingleChildScrollView(
         child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-          SizedBox(
-            height: 10,
+          const SizedBox(
+            height: NumberConstant.doubleTen,
           ),
-          CircleAvatar(
-            radius: 80,
-            backgroundImage: AssetImage("assets/Frame4.png"),
+          const CircleAvatar(
+            radius: NumberConstant.doubleEighty,
+            backgroundImage: AssetImage("assets/png/meetwell_logo.png"),
             child: Stack(children: [
               Align(
                 alignment: Alignment.bottomRight,
                 child: CircleAvatar(
-                  radius: 22,
-                  backgroundColor: Colors.transparent,
+                  radius: NumberConstant.doubleTwenty,
+                  backgroundColor: Colors.black26,
                   child: Icon(Icons.edit),
                 ),
               ),
             ]),
           ),
-          SizedBox(
-            height: 12,
+          const SizedBox(
+            height: NumberConstant.doubleTwelve,
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(NumberConstant.doubleEight),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                WidgetEditTextField(textFieldHint: 'Full Name', textInputType: TextInputType.numberWithOptions(), controller: nameController, onSubmitField: (){},),
-                WidgetEditTextField(textFieldHint: 'Email', textInputType: TextInputType.numberWithOptions(), controller: emailController, onSubmitField: (){},),
-                WidgetEditTextField(textFieldHint: 'Mobile Number', textInputType: TextInputType.numberWithOptions(), controller: numberController, onSubmitField: (){},),
+                WidgetEditTextField(
+                  textFieldHint: StringConstant.textFullName,
+                  textInputType: TextInputType.text,
+                  controller: registrationController?.nameController,
+                  onSubmitField: () {},
+                    inputFormatter: formValidationMethod(ValidationParamsEnum.name.name),
+                ),
+                WidgetEditTextField(
+                  textFieldHint: StringConstant.textEmail,
+                  textInputType: TextInputType.emailAddress,
+                  controller: registrationController?.emailController,
+                  onSubmitField: () {},
+                  inputFormatter: formValidationMethod(ValidationParamsEnum.email.name),
+                ),
+                WidgetEditTextField(
+                  textFieldHint: StringConstant.textPhoneNumber,
+                  textInputType: TextInputType.phone,
+                  controller: registrationController?.numberController,
+                  onSubmitField: () {},
+                  inputFormatter: formValidationMethod(ValidationParamsEnum.phoneno.name),
+                ),
               ],
             ),
           ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height *
+                NumberConstant.doublePointOne,
+          ),
           ElevatedButton(
-              onPressed: () {
-
-              },
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateColor.resolveWith(
-                          (states) => Colors.blue.shade50)),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 80),
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                  elevation: NumberConstant.doubleZero,
+                  backgroundColor: buttonColor,
+                  padding: const EdgeInsets.symmetric(
+                      vertical: NumberConstant.doubleThirteen,
+                      horizontal: NumberConstant.doubleTwentyFive),
+                  shape: RoundedRectangleBorder(
+                    borderRadius:
+                        BorderRadius.circular(NumberConstant.doubleThirty),
+                  )),
+              child: const Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: NumberConstant.doubleEighty),
                 child: Text(
-                  "Submit",
-                  style: TextStyle(color: Colors.black),
+                  StringConstant.textSubmit,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               )),
         ]),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meet_well/main/provider/main_provider.dart';
 import 'package:meet_well/screens/dashboard/dashboard_screen.dart';
-import 'package:meet_well/screens/login/login_screen.dart';
 import 'package:meet_well/screens/registration/view/registration_screen.dart';
 import 'package:meet_well/screens/login/controller/login_controller.dart';
 import 'package:meet_well/screens/login/view/login_screen.dart';
@@ -37,11 +36,17 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: StringConstant.boolFalse,
         initialRoute: routes.splash,
+        theme: ThemeData(
+          fontFamily: 'poppins',
+          useMaterial3: true,
+          primarySwatch: Colors.blue,
+        ),
+
 
         ///Routes
         routes: <String, WidgetBuilder>{
           login: (BuildContext context) => LoginScreen(),
-          dashboard: (BuildContext context) => DashboardScreen()
+          dashboard: (BuildContext context) => DashboardScreen(),
           '/registration': (BuildContext context) => RegistrationScreen()
         },
 
@@ -59,6 +64,7 @@ class MyApp extends StatelessWidget {
         //   return null;
         // },
         home: const SplashScreen(),
+       // home: RegistrationScreen(),
       ),
     );
   }
