@@ -7,4 +7,5 @@ const String notifications = '/notifications';
 const String groupDetails = '/groupdetails';
 const String profileScreen = '/profilescreen';
 const String meetingDetailsScreen = '/meetingDetailsscreen';
+const String addVisitor = '/addVisitor';
 

@@ -1,3 +1,6 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
 class StringConstant {
   static const String textEmpty = "";
   static const String textSpace = " ";
@@ -36,7 +39,6 @@ class StringConstant {
   static const String textCountry = 'IN';
   static const String textSubmit = "Submit";
   static const String textPrivacyTermsConditions ="Privacy Policy,Terms & Conditions";
-  static const String textLogin ="Login";
   static const String textThePlatformOfMeeting = "The Platform of Meeting";
   static const String textEnterYourMobile = "Enter Your Mobile";
   static const String textNumber = "Number";
@@ -50,11 +52,20 @@ class StringConstant {
   static const String textTransactions = "Transactions";
   static const String textNotifications = "Notifications";
   static const String textGroupDetails = "Group Details";
+  static const String textAddVisitor = "Add Visitor";
+  static const String textAddButton = "Add";
 
-  static const String jsonDefaultGroup =
-      "assets/dummy_json/dummy_json_file.json";
+  //form feilds
+  static const String textAddFullName = "Full Name";
+  static const String textAddPhoneNumber = "Contact Number";
+  static const String textAddFees = "Meeting Fees";
+
+  //errorMessages
+  static const String textErrorFullName = "Please Enter Full Name";
+  static const String textErrorPhoneNumber = "please Enter Valid Phone Number";
+  static const String textErrorFees = "Meeting Fees should not be Empty";
+
 
   static const String jsonMeetingList ="assets/group_meeting_details.json";
-
 }
 
