@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:meet_well/main/provider/main_provider.dart';
 import 'package:meet_well/screens/dashboard/dashboard_screen.dart';
 import 'package:meet_well/screens/login/login_screen.dart';
+import 'package:meet_well/screens/registration/view/registration_screen.dart';
 import 'package:meet_well/screens/splash/view/splash_screen.dart';
 import 'package:meet_well/utils/route/route.dart' as routes;
 import 'package:provider/provider.dart';
@@ -32,8 +33,9 @@ class MyApp extends StatelessWidget {
 
         ///Routes
         routes: <String, WidgetBuilder>{
-          '/login': (BuildContext context) => LoginScreen(),
-          '/dashboard': (BuildContext context) => DashboardScreen()
+          '/login': (BuildContext context) => RegistrationScreen(),
+          '/dashboard': (BuildContext context) => DashboardScreen(),
+      '/registration': (BuildContext context) => RegistrationScreen()
         },
 
         /// Passing Data as Arguments to screens
