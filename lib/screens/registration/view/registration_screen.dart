@@ -15,7 +15,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("User/Member Details"),
+        title: const Text("Add Member details"),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 10),
@@ -63,9 +63,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           ElevatedButton(
               onPressed: () {
-                // if (_formValidation.currentState!.validate()) {
-                //   print("object${MediaQuery.of(context).size.height}");
-                // }
+
               },
               style: ButtonStyle(
                   backgroundColor: MaterialStateColor.resolveWith(

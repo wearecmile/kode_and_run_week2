@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-//import '../constants/color_constants.dart';
-//import '../constants/number_constants.dart';
-//import '../constants/string_constants.dart';
-
 class WidgetEditTextField extends StatefulWidget {
   //String
   final String textFieldHint;
@@ -70,43 +66,38 @@ class _WidgetEditTextFieldState extends State<WidgetEditTextField> {
           bottom: 10,
         ),
         child: TextField(
-          //  validator:,
           focusNode: widget.focusNode,
           inputFormatters: widget.inputFormatter,
           readOnly: widget.isReadOnly ?? false,
           enabled: widget.isEnabled,
           controller: widget.controller,
           style: const TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontSize: 14,
               // fontFamily: StringConstant.fontIBMPlexMonoRegular,
               fontWeight: FontWeight.w400),
           decoration: InputDecoration(
+              labelStyle: TextStyle(
+                color: Color(0xFF6200EE),
+              ),
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.black26),
+              ),
               labelText: widget.textFieldHint,
-              labelStyle: const TextStyle(color: Colors.grey),
               counterText: "",
               contentPadding: const EdgeInsets.only(
                 top: 14,
                 bottom: 13,
-                left: 24,
+                left: 18,
               ),
-              // enabledBorder: const OutlineInputBorder(
-              //     borderSide: BorderSide(color: Colors.black12),
-              //     //color: loginTextFieldBorderColor
-              //     borderRadius: BorderRadius.all(
-              //         Radius.circular(38))),
-              // focusedBorder: const OutlineInputBorder(
-              //     borderSide: BorderSide(color: Colors.black12),
-              //     borderRadius: BorderRadius.all(
-              //         Radius.circular(38))),
               filled: widget.isFilled,
               hintStyle: const TextStyle(
-                  color: Colors.white,
+                  color: Colors.black12,
                   fontSize: 14,
                   // fontFamily: StringConstant.fontIBMPlexMonoRegular,
                   fontWeight: FontWeight.w400),
               hintText: widget.textFieldHint,
-              // fillColor: loginTextFieldBorderColor,
+               fillColor: Colors.black12,
               suffixIcon: widget.suffixIcon,
               helperText: widget.helperText,
               prefixIcon: widget.prefixIcon),

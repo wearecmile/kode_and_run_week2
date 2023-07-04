@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meet_well/utils/constants/string_constants.dart';
+import 'package:meet_well/utils/route/route.dart' as routes;
+
 
 class DashboardScreen extends StatefulWidget {
   @override
@@ -12,7 +14,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: StringConstant.boolFalse,
-        title: const Text(StringConstant.textDashboard),
+        title: InkWell(
+            onTap: ()=> Navigator.pushNamed(context, routes.registration ),
+            child: const Text(StringConstant.textDashboard)),
       ),
     );
   }
