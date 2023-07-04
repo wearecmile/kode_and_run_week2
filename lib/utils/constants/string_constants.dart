@@ -22,10 +22,22 @@ class StringConstant {
   static const String icMeetWellLogo = "assets/svg/ic_meet_well_logo.svg";
 
   //Json File
-  static const String jsonDefaultGroup =
-      "assets/dummy_json/dummy_json_file.json";
+  static const String jsonDefaultGroup = "assets/dummy_json/dummy_json_file.json";
+
+  //Login Screen Constants
+  static const String textPhoneNumber = 'Phone Number';
+  static const String textCountry = 'IN';
+  static const String textSubmit = "Submit";
+  static const String textPrivacyTermsConditions ="Privacy Policy,Terms & Conditions";
+  static const String textLogin ="Login";
+  static const String textThePlatformOfMeeting = "The Platform of Meeting";
+  static const String textEnterYourMobile = "Enter Your Mobile";
+  static const String textNumber = "Number";
+  static const String textWeWillSendYouAVerification = "We Will Send You A Verification";
+  static const String textCode = "Code";
+ static const String textCountryCode ="+91";
+
 
   //Screen Name
-  static const String textLogin = "Login";
   static const String textDashboard = "Dashboard";
 }

@@ -86,6 +86,7 @@ class NumberConstant {
   static const double doublePointFourteen = 0.14;
   static const double doublePointFifteen = 0.15;
   static const double doublePointSixteen = 0.16;
+  static const double doublePointEighteen =0.18;
   static const double doublePointTwenty = 0.20;
   static const double doublePointTwentyTwo = 0.22;
   static const double doublePointThirty = 0.30;
@@ -117,6 +118,7 @@ class NumberConstant {
   static const double doubleSix = 6.0;
   static const double doubleSixPointFive = 6.5;
   static const double doublePointNinety = 0.90;
+  static const double doublePointZeroZeroNine = 0.009;
 
   static const double doubleSeven = 7.0;
   static const double doubleEight = 8.0;
