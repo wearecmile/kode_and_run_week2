@@ -59,8 +59,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 WidgetEditTextField(textFieldHint: 'Full Name', textInputType: TextInputType.numberWithOptions(), controller: nameController, onSubmitField: (){},),
                 WidgetEditTextField(textFieldHint: 'Email', textInputType: TextInputType.numberWithOptions(), controller: emailController, onSubmitField: (){},),
                 WidgetEditTextField(textFieldHint: 'Mobile Number', textInputType: TextInputType.numberWithOptions(), controller: numberController, onSubmitField: (){},),
-
-
               ],
             ),
           ),
