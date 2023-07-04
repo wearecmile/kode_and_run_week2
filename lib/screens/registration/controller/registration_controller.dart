@@ -4,7 +4,14 @@ class RegistrationController extends ChangeNotifier{
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController numberController = TextEditingController();
+
 init(){
 
 }
+
+@override
+  void dispose() {
+    // TODO: implement dispose
+  super.dispose();
+  }
 }

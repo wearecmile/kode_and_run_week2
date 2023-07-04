@@ -25,18 +25,25 @@ class _LoginScreenState extends State<LoginScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
+
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       numberProvider = Provider.of<LoginController>(context,
           listen: StringConstant.boolFalse);
     });
   }
 
+  @override
+  void dispose() {
+    WidgetsBinding.instance.addPostFrameCallback((_){
+      numberProvider?.phoneNumberController.clear();
+    });
+    // TODO: implement dispose
+    super.dispose();
+  }
   final GlobalKey<FormState> _phoneNumberValidation = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => RegistrationController(),
-      child: Scaffold(
+    return Scaffold(
         body: SingleChildScrollView(
           child: SizedBox(
             height: MediaQuery.of(context).size.height,
@@ -203,7 +210,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ]),
           ),
         ),
-      ),
-    );
+      );
+
   }
 }

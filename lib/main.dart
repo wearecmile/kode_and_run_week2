@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meet_well/main/provider/main_provider.dart';
 import 'package:meet_well/screens/dashboard/dashboard_screen.dart';
+import 'package:meet_well/screens/registration/controller/registration_controller.dart';
 import 'package:meet_well/screens/registration/view/registration_screen.dart';
 import 'package:meet_well/screens/login/controller/login_controller.dart';
 import 'package:meet_well/screens/login/view/login_screen.dart';
@@ -32,6 +33,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<LoginController>(
           create: (context) => LoginController(),
         ),
+    ChangeNotifierProvider(
+    create: (context) => RegistrationController(),
+    ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: StringConstant.boolFalse,
@@ -47,7 +51,7 @@ class MyApp extends StatelessWidget {
         routes: <String, WidgetBuilder>{
           login: (BuildContext context) => LoginScreen(),
           dashboard: (BuildContext context) => DashboardScreen(),
-          '/registration': (BuildContext context) => RegistrationScreen()
+          registration : (BuildContext context) => RegistrationScreen()
         },
 
         /// Passing Data as Arguments to screens
