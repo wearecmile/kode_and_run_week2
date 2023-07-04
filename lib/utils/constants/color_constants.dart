@@ -38,6 +38,7 @@ const bottomBarBackgroundColor = Color(0x99000000);
 const postTitleTextColor = whiteColor;
 const postSubTitleTextColor = listTextSecondaryColor;
 const textBackGroundContainer = Color(0xff3a3a3a);
+const buttonColor = Color( 0xFFE8DEF8);
 
 //home Bottom sheet
 const bottomSheetStartColor = gradientDarkBlue;

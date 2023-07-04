@@ -1,6 +1,3 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-
 class StringConstant {
   static const String textEmpty = "";
   static const String textSpace = " ";
@@ -13,6 +10,7 @@ class StringConstant {
   static const String textZero = "0";
   static const String textSymbolAnd = "&";
 
+  //Error Text
   static const String textError = "Error";
 
   static const String icMeetWellLogo = " assets/svg/ic_meet_well_logo.svg";
@@ -30,6 +28,24 @@ class StringConstant {
   static const String textNoMeetings = "No Meetings are sceduled";
   static const String textScheduledMeetings = "Scheduled Meetings";
   static const String textLogin = "Login";
+  //Json File
+  static const String jsonDefaultGroup = "assets/dummy_json/dummy_json_file.json";
+
+  //Login Screen Constants
+  static const String textPhoneNumber = 'Phone Number';
+  static const String textCountry = 'IN';
+  static const String textSubmit = "Submit";
+  static const String textPrivacyTermsConditions ="Privacy Policy,Terms & Conditions";
+  static const String textLogin ="Login";
+  static const String textThePlatformOfMeeting = "The Platform of Meeting";
+  static const String textEnterYourMobile = "Enter Your Mobile";
+  static const String textNumber = "Number";
+  static const String textWeWillSendYouAVerification = "We Will Send You A Verification";
+  static const String textCode = "Code";
+ static const String textCountryCode ="+91";
+
+
+  //Screen Name
   static const String textDashboard = "Dashboard";
   static const String textTransactions = "Transactions";
   static const String textNotifications = "Notifications";
