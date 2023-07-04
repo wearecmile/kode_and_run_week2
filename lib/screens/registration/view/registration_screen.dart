@@ -11,6 +11,9 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController numberController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,9 +56,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                WidgetEditTextField(textFieldHint: 'Full Name', textInputType: TextInputType.numberWithOptions(), controller: null, onSubmitField: (){},),
-                WidgetEditTextField(textFieldHint: 'Email', textInputType: TextInputType.numberWithOptions(), controller: null, onSubmitField: (){},),
-                WidgetEditTextField(textFieldHint: 'Mobile Number', textInputType: TextInputType.numberWithOptions(), controller: null, onSubmitField: (){},),
+                WidgetEditTextField(textFieldHint: 'Full Name', textInputType: TextInputType.numberWithOptions(), controller: nameController, onSubmitField: (){},),
+                WidgetEditTextField(textFieldHint: 'Email', textInputType: TextInputType.numberWithOptions(), controller: emailController, onSubmitField: (){},),
+                WidgetEditTextField(textFieldHint: 'Mobile Number', textInputType: TextInputType.numberWithOptions(), controller: numberController, onSubmitField: (){},),
 
 
               ],

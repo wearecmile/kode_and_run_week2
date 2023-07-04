@@ -66,22 +66,26 @@ class _WidgetEditTextFieldState extends State<WidgetEditTextField> {
           bottom: 10,
         ),
         child: TextField(
+          cursorColor:  Color(0xFF6200EE),
           focusNode: widget.focusNode,
           inputFormatters: widget.inputFormatter,
           readOnly: widget.isReadOnly ?? false,
           enabled: widget.isEnabled,
           controller: widget.controller,
           style: const TextStyle(
-              color: Colors.black,
               fontSize: 14,
               // fontFamily: StringConstant.fontIBMPlexMonoRegular,
               fontWeight: FontWeight.w400),
           decoration: InputDecoration(
+            focusColor:  Color(0xFF6200EE),
               labelStyle: TextStyle(
                 color: Color(0xFF6200EE),
               ),
               enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.black26),
+                borderSide: BorderSide(color: Colors.black12),
+              ),
+              focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Color(0xFF6200EE)),
               ),
               labelText: widget.textFieldHint,
               counterText: "",
