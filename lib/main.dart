@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:meet_well/main/provider/main_provider.dart';
 import 'package:meet_well/screens/dashboard/dashboard_screen.dart';
-import 'package:meet_well/screens/login/login_screen.dart';
+import 'package:meet_well/screens/login/controller/login_controller.dart';
+import 'package:meet_well/screens/login/view/login_screen.dart';
 import 'package:meet_well/screens/splash/view/splash_screen.dart';
+import 'package:meet_well/utils/constants/string_constants.dart';
 import 'package:meet_well/utils/route/route.dart' as routes;
+import 'package:meet_well/utils/route/route.dart';
 import 'package:provider/provider.dart';
 
 import 'screens/splash/controller/splash_screen_controller.dart';
@@ -25,15 +28,18 @@ class MyApp extends StatelessWidget {
         ),
         Provider<SplashScreenController>(
             create: (_) => SplashScreenController()),
+        ChangeNotifierProvider<LoginController>(
+          create: (context) => LoginController(),
+        ),
       ],
       child: MaterialApp(
-        debugShowCheckedModeBanner: false,
+        debugShowCheckedModeBanner: StringConstant.boolFalse,
         initialRoute: routes.splash,
 
         ///Routes
         routes: <String, WidgetBuilder>{
-          '/login': (BuildContext context) => LoginScreen(),
-          '/dashboard': (BuildContext context) => DashboardScreen()
+          login: (BuildContext context) => LoginScreen(),
+          dashboard: (BuildContext context) => DashboardScreen()
         },
 
         /// Passing Data as Arguments to screens
