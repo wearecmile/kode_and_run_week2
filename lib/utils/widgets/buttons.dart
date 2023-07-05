@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:meet_well/utils/constants/style_constants.dart';
 import '../constants/color_constants.dart';
 import '../constants/number_constants.dart';
 
@@ -19,7 +20,7 @@ class WidgetGradientBorderButton extends StatefulWidget {
 class _WidgetGradientBorderButtonState
     extends State<WidgetGradientBorderButton> {
   final kInnerDecoration = BoxDecoration(
-    color:buttonBackGroundColor,
+    color: buttonBackGroundColor,
     borderRadius: BorderRadius.circular(NumberConstant.doubleFiftySeven),
   );
 
@@ -27,9 +28,8 @@ class _WidgetGradientBorderButtonState
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(
-          left: NumberConstant.doubleFortyEight,
-          right: NumberConstant.doubleFortySeven,
-     // bottom: NumberConstant.doubleTwentyFive
+        left: NumberConstant.doubleFortyEight,
+        right: NumberConstant.doubleFortySeven,
       ),
       height: NumberConstant.doubleFortyFive,
       width: double.infinity,
@@ -43,14 +43,9 @@ class _WidgetGradientBorderButtonState
             decoration: kInnerDecoration,
             child: Align(
               alignment: FractionalOffset.center,
-              child: Text(
-                widget.buttonText,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                    color: listTextPrimaryColor,
-                    fontSize: NumberConstant.doubleTwenty,
-                    fontWeight: FontWeight.w600),
-              ),
+              child: Text(widget.buttonText,
+                  textAlign: TextAlign.center,
+                  style: AppStyle.buttonTextStyle()),
             ),
           ),
         ),

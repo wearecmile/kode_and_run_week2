@@ -28,7 +28,6 @@ class AppStyle {
       fontSize: NumberConstant.doubleThirty,
     );
   }
-
   static errorNoMeeting() {
     return const TextStyle(
         fontSize: NumberConstant.doubleTwenty, color: redColor);
@@ -38,5 +37,32 @@ class AppStyle {
     const TextStyle(
       fontSize: NumberConstant.doubleTwentyFive,
     );
+  }
+
+  static appBarTitle () {
+   return const TextStyle(color: listTextPrimaryColor,
+      fontSize: NumberConstant.doubleThirty,
+      fontWeight: FontWeight.bold,
+    );
+  }
+  static buttonTextStyle (){
+    return const TextStyle(
+        color: listTextPrimaryColor,
+        fontSize: NumberConstant.doubleTwenty,
+        fontWeight: FontWeight.w600);
+  }
+
+
+  static textFormFeildLabel (){
+    return const TextStyle(
+      color: buttonColor ,
+    );
+  }
+
+  static textFormFeild (){
+    return const TextStyle(
+        color: listTextPrimaryColor,
+        fontSize: NumberConstant.doubleFourteen,
+        fontWeight: FontWeight.w400);
   }
 }

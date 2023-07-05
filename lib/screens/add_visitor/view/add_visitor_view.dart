@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:meet_well/utils/constants/color_constants.dart';
 import 'package:meet_well/utils/constants/number_constants.dart';
 import 'package:meet_well/utils/constants/string_constants.dart';
+import 'package:meet_well/utils/widgets/appbar.dart';
 import 'package:provider/provider.dart';
 import '../../../utils/widgets/buttons.dart';
 import '../../../utils/widgets/texxtfeilds.dart';
@@ -25,10 +26,8 @@ class _AddVisitorState extends State<AddVisitor> {
         TextEditingController();
     return Scaffold(
         backgroundColor: whiteColor,
-        appBar: AppBar(
-          backgroundColor: whiteColor,
-          title: const Text(StringConstant.textAddVisitor,
-              style: TextStyle(fontSize: NumberConstant.doubleThirty)),
+        appBar: const Appbar(
+          title: StringConstant.textAddVisitor,
         ),
         body: SingleChildScrollView(
           child: Form(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:meet_well/utils/constants/number_constants.dart';
 import 'package:meet_well/utils/constants/string_constants.dart';
+import 'package:meet_well/utils/constants/style_constants.dart';
 
 import '../constants/color_constants.dart';
 
@@ -78,15 +79,9 @@ class _WidgetEditTextFieldState extends State<WidgetEditTextField> {
           readOnly: widget.isReadOnly ?? StringConstant.boolFalse,
           enabled: widget.isEnabled,
           controller: widget.controller,
-          style: const TextStyle(
-              color: Colors.black,
-              fontSize: NumberConstant.doubleFourteen,
-              // fontFamily: StringConstant.fontIBMPlexMonoRegular,
-              fontWeight: FontWeight.w400),
+          style: AppStyle.textFormFeild(),
           decoration: InputDecoration(
-              labelStyle:const TextStyle(
-                color: buttonColor ,
-              ),
+              labelStyle:AppStyle.textFormFeildLabel(),
               enabledBorder: const UnderlineInputBorder(
                 borderSide: BorderSide(color:buttonBackGroundColor),
               ),
@@ -100,11 +95,7 @@ class _WidgetEditTextFieldState extends State<WidgetEditTextField> {
                 left: NumberConstant.doubleEighteen,
               ),
               filled: widget.isFilled,
-              hintStyle: const TextStyle(
-                  color: listTextPrimaryColor,
-                  fontSize: NumberConstant.doubleFourteen,
-                  // fontFamily: StringConstant.fontIBMPlexMonoRegular,
-                  fontWeight: FontWeight.w400),
+              hintStyle: AppStyle.textFormFeild(),
               hintText: widget.textFieldHint,
               fillColor: buttonBackGroundColor,
               suffixIcon: widget.suffixIcon,

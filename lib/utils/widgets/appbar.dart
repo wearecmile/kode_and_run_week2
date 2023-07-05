@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meet_well/utils/constants/style_constants.dart';
 
 import '../constants/color_constants.dart';
 import '../constants/number_constants.dart';
@@ -13,10 +14,7 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: Text(
         title ?? StringConstant.textEmpty,
-        style: const TextStyle(color: listTextPrimaryColor,
-            fontSize: NumberConstant.doubleThirty,
-            fontWeight: FontWeight.bold,
-        ),
+        style: AppStyle.appBarTitle(),
       ),
     );
   }
