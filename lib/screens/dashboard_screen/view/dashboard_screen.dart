@@ -18,7 +18,7 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  List<Meeting> meetings = [];
+  List<Meeting> meetingsList = [];
   String groupName = StringConstant.textEmpty;
 
   @override
@@ -61,7 +61,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ],
           ),
 
-          (meetings.length > NumberConstant.intZero)
+          (meetingsList.length > NumberConstant.intZero)
               ? meetingCard()
               : SizedBox(
                   height: NumberConstant.doubleForty,
@@ -82,7 +82,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       physics: const NeverScrollableScrollPhysics(),
       scrollDirection: Axis.vertical,
       shrinkWrap: StringConstant.boolTrue,
-      itemCount: meetings.length,
+      itemCount: meetingsList.length,
       itemBuilder: (context, index) {
         return InkWell(
           onTap: () {
@@ -105,19 +105,19 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("${meetings[index].title}",
+                    Text("${meetingsList[index].title}",
                         style: AppStyle.meetingTitle()),
                     const SizedBox(height: NumberConstant.doubleTen),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Text(
-                          "${meetings[index].date}",
+                          "${meetingsList[index].date}",
                           style: AppStyle.meetingDateTimeLocation(),
                         ),
                         const SizedBox(width: NumberConstant.doubleTen),
                         Text(
-                          "${meetings[index].time}",
+                          "${meetingsList[index].time}",
                           style: AppStyle.meetingDateTimeLocation(),
                         ),
                       ],
@@ -126,7 +126,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       children: [
                         const Icon(Icons.location_on_outlined),
                         Text(
-                          "${meetings[index].location}",
+                          "${meetingsList[index].location}",
                           style: AppStyle.meetingDateTimeLocation(),
                         )
                       ],
@@ -152,15 +152,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
   }
 
   formatMeetings(result) async {
-    meetings = [];
+    meetingsList = [];
     groupName = result.data.groupName;
     for (var i = NumberConstant.intZero;
         i < result.data.listOfMeetings.length;
         i++) {
-      meetings.add(result.data.listOfMeetings[i]);
+      meetingsList.add(result.data.listOfMeetings[i]);
     }
     setState(() {
-      meetings;
+      meetingsList;
       groupName;
     });
   }

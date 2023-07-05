@@ -6,7 +6,6 @@ class TransactionScreen extends StatefulWidget {
   @override
   State<TransactionScreen> createState() => _TransactionScreenState();
 }
-bool isCaptain = true;
 class _TransactionScreenState extends State<TransactionScreen> {
   @override
   Widget build(BuildContext context) {

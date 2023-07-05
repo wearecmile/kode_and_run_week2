@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:meet_well/screens/dashboard_screen/view/dashboard_screen_view.dart';
-import 'package:meet_well/screens/notification_screen/view/notification_screen_view.dart';
-import 'package:meet_well/screens/transaction_screen/view/transavtion_screen_view.dart';
+import 'package:meet_well/screens/dashboard_screen/view/dashboard_screen.dart';
+import 'package:meet_well/screens/notification_screen/view/notification_screen.dart';
+import 'package:meet_well/screens/transaction_screen/view/transavtion_screen.dart';
 import 'package:meet_well/utils/constants/number_constants.dart';
 import 'package:meet_well/utils/constants/string_constants.dart';
 import 'package:meet_well/utils/route/route.dart' as routes;
 
-import '../../screens/group_details_screen/view/group_details_screen_view.dart';
+import '../../screens/group_details_screen/view/group_details_screen.dart';
 import '../../utils/constants/color_constants.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -40,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
   var selectedeIndex;
   void initState() {
     // TODO: implement initState
-    selectedeIndex = 0;
+    selectedeIndex = NumberConstant.intZero;
     super.initState();
   }
 

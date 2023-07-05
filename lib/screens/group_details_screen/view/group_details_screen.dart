@@ -6,7 +6,6 @@ class GroupDetailsScreen extends StatefulWidget {
   @override
   State<GroupDetailsScreen> createState() => _GroupDetailsScreenState();
 }
-bool isCaptain = true;
 class _GroupDetailsScreenState extends State<GroupDetailsScreen> {
   @override
   Widget build(BuildContext context) {

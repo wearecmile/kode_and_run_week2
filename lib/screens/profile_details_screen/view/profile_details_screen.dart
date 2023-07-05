@@ -8,7 +8,6 @@ class ProfileDetailsScreen extends StatefulWidget {
   @override
   State<ProfileDetailsScreen> createState() => _ProfileDetailsScreenState();
 }
-bool isCaptain = true;
 class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
   @override
   Widget build(BuildContext context) {

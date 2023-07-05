@@ -6,7 +6,6 @@ class NotificationsScreen extends StatefulWidget {
   @override
   State<NotificationsScreen> createState() => _NotificationsScreenState();
 }
-bool isCaptain = true;
 class _NotificationsScreenState extends State<NotificationsScreen> {
   @override
   Widget build(BuildContext context) {
