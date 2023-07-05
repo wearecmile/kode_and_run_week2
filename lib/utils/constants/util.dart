@@ -19,3 +19,9 @@ List<TextInputFormatter>? formValidationMethod(string) {
     return [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))];
   }
 }
+
+
+bool isEmailValid(String email) {
+  final emailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+$');
+  return emailRegex.hasMatch(email);
+}

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meet_well/utils/constants/style_constants.dart';
 import 'package:provider/provider.dart';
 
 import '../../../utils/constants/color_constants.dart';
@@ -28,9 +29,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         listen: StringConstant.boolFalse);
     loginController =
         Provider.of<LoginController>(context, listen: StringConstant.boolFalse);
-
-    ///mandatory to call for assigning value in InitState in provider
-    registrationController?.init();
     super.initState();
 
     ///(setState() or markNeedsBuild() called during build.) facing this error so put on WidgetsBinding.instance.addPostFrameCallback
@@ -99,68 +97,72 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             padding: const EdgeInsets.all(NumberConstant.doubleEight),
             child: Form(
               key: _formKey,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  WidgetEditTextField(
-                    maxLength: NumberConstant.intFifty,
-                    textFieldHint: StringConstant.textFullName,
-                    textInputType: TextInputType.text,
-                    controller: registrationController?.nameController,
-                    inputFormatter:
-                        formValidationMethod(ValidationParamsEnum.name.name),
-                    validator: (String? value) {
-                      if (value!.isEmpty) {
-                        return StringConstant.textErrorFullName;
-                      }
-                      return null;
-                    },
-                    onChanged: () {
-                      setState(() {
-                        _formKey.currentState!.validate();
-                      });
-                    },
-                  ),
-                  WidgetEditTextField(
-                    maxLength: NumberConstant.intFifty,
-                    textFieldHint: StringConstant.textEmail,
-                    textInputType: TextInputType.emailAddress,
-                    controller: registrationController?.emailController,
-                    inputFormatter:
-                        formValidationMethod(ValidationParamsEnum.email.name),
-                    validator: (String? value) {
-                      if (value!.isEmpty) {
-                        return StringConstant.textErrorEmail;
-                      }
-                      return null;
-                    },
-                    onChanged: () {
-                      setState(() {
-                        _formKey.currentState!.validate();
-                      });
-                    },
-                  ),
-                  WidgetEditTextField(
-                    maxLength: NumberConstant.intTen,
-                    textFieldHint: StringConstant.textPhoneNumber,
-                    textInputType: TextInputType.phone,
-                    controller: registrationController?.numberController,
-                    inputFormatter:
-                        formValidationMethod(ValidationParamsEnum.phoneno.name),
-                    validator: (String? value) {
-                      if (value!.isEmpty ||
-                          value.length != NumberConstant.intTen) {
-                        return StringConstant.textErrorPhoneNumber;
-                      }
-                      return null;
-                    },
-                    onChanged: () {
-                      setState(() {
-                        _formKey.currentState!.validate();
-                      });
-                    },
-                  ),
-                ],
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: NumberConstant.doubleTen),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    CustomTextField(
+                      maxLength: NumberConstant.intFifty,
+                      textFieldHint: StringConstant.textFullName,
+                      textInputType: TextInputType.text,
+                      controller: registrationController?.nameController,
+                      inputFormatter:
+                          formValidationMethod(ValidationParamsEnum.name.name),
+                      validator: (value) {
+                        if (value?.isEmpty ?? StringConstant.boolFalse) {
+                          return StringConstant.textErrorFullName;
+                        }
+                        return null;
+                      },
+                      onChanged: () {
+                        setState(() {
+                          _formKey.currentState?.validate();
+                        });
+                      },
+                    ),
+                    CustomTextField(
+                      maxLength: NumberConstant.intFifty,
+                      textFieldHint: StringConstant.textEmail,
+                      textInputType: TextInputType.emailAddress,
+                      controller: registrationController?.emailController,
+                      inputFormatter:
+                          formValidationMethod(ValidationParamsEnum.email.name),
+                      validator: (value) {
+                        if (value?.isEmpty ?? StringConstant.boolFalse) {
+                          return StringConstant.textErrorEmail;
+                        }
+                        return null;
+                      },
+                      onChanged: () {
+                        setState(() {
+                          _formKey.currentState?.validate();
+                        });
+                      },
+                    ),
+                    CustomTextField(
+                      maxLength: NumberConstant.intTen,
+                      isEnabled: StringConstant.boolFalse,
+                      textFieldHint: StringConstant.textPhoneNumber,
+                      textInputType: TextInputType.phone,
+                      controller: registrationController?.numberController,
+                      inputFormatter: formValidationMethod(
+                          ValidationParamsEnum.phoneno.name),
+                      validator: (String? value) {
+                        if (value?.length != NumberConstant.intTen) {
+                          return StringConstant.textErrorPhoneNumber;
+                        }
+                        return null;
+                      },
+                      onChanged: () {
+                        setState(() {
+                          _formKey.currentState?.validate();
+                        });
+                      },
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -171,7 +173,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ElevatedButton(
               onPressed: () {
                 ///Todo
-                if (_formKey.currentState!.validate()) {
+                if (_formKey.currentState?.validate() ??
+                    StringConstant.boolFalse) {
 
                 }
               },
@@ -185,15 +188,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     borderRadius:
                         BorderRadius.circular(NumberConstant.doubleThirty),
                   )),
-              child: const Padding(
-                padding: EdgeInsets.symmetric(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
                     horizontal: NumberConstant.doubleEighty),
                 child: Text(
                   StringConstant.textSubmit,
-                  style: TextStyle(
-                    color: blackColor,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: AppStyle.buttonTextStyle(),
                 ),
               )),
         ]),

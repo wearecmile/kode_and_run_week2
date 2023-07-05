@@ -3,23 +3,23 @@ import 'package:flutter/widgets.dart';
 import '../constants/color_constants.dart';
 import '../constants/number_constants.dart';
 
-class WidgetGradientBorderButton extends StatefulWidget {
+class CustomButton extends StatefulWidget {
   final String buttonText;
   final Function onButtonTap;
 
-  const WidgetGradientBorderButton(
+  const CustomButton(
       {Key? key, required this.buttonText, required this.onButtonTap})
       : super(key: key);
 
   @override
-  State<WidgetGradientBorderButton> createState() =>
-      _WidgetGradientBorderButtonState();
+  State<CustomButton> createState() =>
+      _CustomButtonState();
 }
 
-class _WidgetGradientBorderButtonState
-    extends State<WidgetGradientBorderButton> {
+class _CustomButtonState
+    extends State<CustomButton> {
   final kInnerDecoration = BoxDecoration(
-    color:buttonBackGroundColor,
+    color: buttonBackGroundColor,
     borderRadius: BorderRadius.circular(NumberConstant.doubleFiftySeven),
   );
 
@@ -58,4 +58,3 @@ class _WidgetGradientBorderButtonState
     );
   }
 }
-

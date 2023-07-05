@@ -22,10 +22,8 @@ class _LoginScreenState extends State<LoginScreen> {
   LoginController? numberProvider;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       numberProvider = Provider.of<LoginController>(context,
           listen: StringConstant.boolFalse);
     });
@@ -33,184 +31,174 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   void dispose() {
-    WidgetsBinding.instance.addPostFrameCallback((_){
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       numberProvider?.phoneNumberController.clear();
     });
-    // TODO: implement dispose
     super.dispose();
   }
+
   final GlobalKey<FormState> _phoneNumberValidation = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SingleChildScrollView(
-          child: SizedBox(
-            height: MediaQuery.of(context).size.height,
-            child: Column(children: [
-              Card(
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(NumberConstant.doubleTen),
-                    bottomRight: Radius.circular(NumberConstant.doubleTen),
-                  ),
-                ),
-                margin: EdgeInsets.zero,
-                color: Colors.white70,
-                child: Container(
-                  decoration: const BoxDecoration(color: Colors.transparent),
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              top: NumberConstant.doubleFifty,
-                              bottom: NumberConstant.doubleTwenty),
-                          child: Center(
-                              child: SvgPicture.asset(
-                                  StringConstant.icMeetWellLogo)),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only(
-                            left: NumberConstant.doubleTwenty,
-                          ),
-                          child: Text(StringConstant.textLogin,
-                              style: TextStyle(
-                                  fontSize: NumberConstant.doubleForty,
-                                  fontWeight: FontWeight.bold)),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only(
-                              left: NumberConstant.doubleTwenty,
-                              bottom: NumberConstant.doubleThirty),
-                          child: Text(StringConstant.textThePlatformOfMeeting,
-                              style: TextStyle(fontWeight: FontWeight.w400)),
-                        ),
-                      ]),
+      body: SingleChildScrollView(
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height,
+          child: Column(children: [
+            Card(
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(NumberConstant.doubleTen),
+                  bottomRight: Radius.circular(NumberConstant.doubleTen),
                 ),
               ),
-              Column(children: [
-                SizedBox(
-                  height: MediaQuery.of(context).size.height *
-                      NumberConstant.doublePointZeroSeven,
-                ),
-                Center(
-                  child: Text(StringConstant.textEnterYourMobile,
-                      style: AppStyle.enterMobileNumber()),
-                ),
-                Center(
-                  child: Text(StringConstant.textNumber,
-                      style: AppStyle.enterMobileNumber()),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height *
-                      NumberConstant.doublePointZeroZeroNine,
-                ),
-                Center(
-                  child: Text(StringConstant.textWeWillSendYouAVerification,
-                      style: AppStyle.verificationTextStyle()),
-                ),
-                Center(
-                  child: Text(StringConstant.textCode,
-                      style: AppStyle.verificationTextStyle()),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height *
-                      NumberConstant.doublePointZeroEight,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: NumberConstant.doubleTwenty),
-                  child: Form(
-                    key: _phoneNumberValidation,
-                    child: IntlPhoneField(
-                      cursorHeight: NumberConstant.doubleTwenty,
-                      inputFormatters: formValidationMethod(
-                          ValidationParamsEnum.phoneno.name),
-                      flagsButtonPadding: const EdgeInsets.only(
-                          top: NumberConstant.doubleTwentyThree,
-                          bottom: NumberConstant.doubleEighteen),
-                      controller: numberProvider?.phoneNumberController,
-                      decoration: const InputDecoration(
-                        border: InputBorder.none,
-                        contentPadding:
-                            EdgeInsets.all(NumberConstant.doubleEight),
-                        fillColor: Colors.black12,
-                        filled: StringConstant.boolTrue,
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey),
-                        ),
-                        labelText: StringConstant.textPhoneNumber,
+              margin: EdgeInsets.zero,
+              color: Colors.white70,
+              child: Container(
+                decoration: const BoxDecoration(color: Colors.transparent),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            top: NumberConstant.doubleFifty,
+                            bottom: NumberConstant.doubleTwenty),
+                        child: Center(
+                            child: SvgPicture.asset(
+                                StringConstant.icMeetWellLogo)),
                       ),
-                      initialCountryCode: StringConstant.textCountry,
-                      onChanged: (phone) {
-                        setState(() {
-                          numberProvider?.countryCode = phone.countryCode;
-                          numberProvider?.number = phone.number;
-                          if (phone.number.length == NumberConstant.doubleTen) {
-                            FocusScope.of(context).unfocus();
-                          }
-                        });
-                      },
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height *
-                      NumberConstant.doubleZeroPointOne,
-                ),
-                Center(
-                  child: ElevatedButton(
-                      onPressed: () {
-                        if (_phoneNumberValidation.currentState?.validate() ??
-                            StringConstant.boolFalse) {
-                          if (numberProvider?.countryCode ==
-                              StringConstant.textCountryCode) {
-                            Navigator.pushNamed(context, routes.dashboard);
-                          }
-                        }
-                      },
-                      style: ElevatedButton.styleFrom(
-                          elevation: NumberConstant.doubleZero,
-                          backgroundColor: buttonColor,
-                          padding: const EdgeInsets.symmetric(
-                              vertical: NumberConstant.doubleThirteen,
-                              horizontal: NumberConstant.doubleTwentyFive),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(
-                                NumberConstant.doubleThirty),
-                          )),
-                      child: const Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: NumberConstant.doubleEighty),
-                        child: Text(
-                          StringConstant.textSubmit,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                          ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          left: NumberConstant.doubleTwenty,
                         ),
-                      )),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height *
-                      NumberConstant.doublePointSixteen,
-                ),
-                InkWell(
-                  onTap: () {},
-                  child: const Text(
-                    StringConstant.textPrivacyTermsConditions,
-                    style: TextStyle(
-                      color: Colors.blueAccent,
-                      fontSize: NumberConstant.doubleFifteen,
-                      fontWeight: FontWeight.bold,
+                        child: Text(StringConstant.textLogin,
+                            style: AppStyle.loginBtnStyle()),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: NumberConstant.doubleTwenty,
+                            bottom: NumberConstant.doubleThirty),
+                        child: Text(StringConstant.textThePlatformOfMeeting,
+                            style: AppStyle.loginScreenSubHeading()),
+                      ),
+                    ]),
+              ),
+            ),
+            Column(children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height *
+                    NumberConstant.doublePointZeroSeven,
+              ),
+              Center(
+                child: Text(StringConstant.textEnterYourMobile,
+                    style: AppStyle.enterMobileNumber()),
+              ),
+              Center(
+                child: Text(StringConstant.textNumber,
+                    style: AppStyle.enterMobileNumber()),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height *
+                    NumberConstant.doublePointZeroZeroNine,
+              ),
+              Center(
+                child: Text(StringConstant.textWeWillSendYouAVerification,
+                    style: AppStyle.verificationTextStyle()),
+              ),
+              Center(
+                child: Text(StringConstant.textCode,
+                    style: AppStyle.verificationTextStyle()),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height *
+                    NumberConstant.doublePointZeroEight,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: NumberConstant.doubleTwenty),
+                child: Form(
+                  key: _phoneNumberValidation,
+                  child: IntlPhoneField(
+                    cursorHeight: NumberConstant.doubleTwenty,
+                    inputFormatters:
+                        formValidationMethod(ValidationParamsEnum.phoneno.name),
+                    flagsButtonPadding: const EdgeInsets.only(
+                        top: NumberConstant.doubleTwentyThree,
+                        bottom: NumberConstant.doubleEighteen),
+                    controller: numberProvider?.phoneNumberController,
+                    decoration: const InputDecoration(
+                      border: InputBorder.none,
+                      contentPadding:
+                          EdgeInsets.all(NumberConstant.doubleEight),
+                      fillColor: Colors.black12,
+                      filled: StringConstant.boolTrue,
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey),
+                      ),
+                      labelText: StringConstant.textPhoneNumber,
                     ),
+                    initialCountryCode: StringConstant.textCountry,
+                    onChanged: (phone) {
+                      setState(() {
+                        numberProvider?.countryCode = phone.countryCode;
+                        numberProvider?.number = phone.number;
+                        if (phone.number.length == NumberConstant.doubleTen) {
+                          FocusScope.of(context).unfocus();
+                        }
+                      });
+                    },
                   ),
                 ),
-              ]),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height *
+                    NumberConstant.doubleZeroPointOne,
+              ),
+              Center(
+                child: ElevatedButton(
+                    onPressed: () {
+                      if (_phoneNumberValidation.currentState?.validate() ??
+                          StringConstant.boolFalse) {
+                        if (numberProvider?.countryCode ==
+                            StringConstant.textCountryCode) {
+                          Navigator.pushNamed(context, routes.dashboard);
+                        }
+                      }
+                    },
+                    style: ElevatedButton.styleFrom(
+                        elevation: NumberConstant.doubleZero,
+                        backgroundColor: buttonColor,
+                        padding: const EdgeInsets.symmetric(
+                            vertical: NumberConstant.doubleThirteen,
+                            horizontal: NumberConstant.doubleTwentyFive),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(
+                              NumberConstant.doubleThirty),
+                        )),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: NumberConstant.doubleEighty),
+                      child: Text(
+                        StringConstant.textSubmit,
+                        style: AppStyle.buttonTextStyle(),
+                      ),
+                    )),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height *
+                    NumberConstant.doublePointSixteen,
+              ),
+              InkWell(
+                onTap: () {},
+                child: Text(
+                  StringConstant.textPrivacyTermsConditions,
+                  style: AppStyle.termsAndConditionsTextStyle(),
+                ),
+              ),
             ]),
-          ),
+          ]),
         ),
-      );
-
+      ),
+    );
   }
 }

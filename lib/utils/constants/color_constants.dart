@@ -8,6 +8,7 @@ const lightBlue = Colors.lightBlueAccent;
 const lightBlueColor = Colors.lightBlueAccent;
 const blackColor = Colors.black;
 const blackColor12 = Colors.black12;
+const blackColor54 = Colors.black54;
 const blackColor26 = Colors.black26;
 const greyColor = Colors.grey;
 const transparentColor = Colors.transparent;

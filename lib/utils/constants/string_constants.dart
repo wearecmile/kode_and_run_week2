@@ -52,7 +52,7 @@ class StringConstant {
 
   //errorMessages
   static const String textErrorFullName = "Please Enter Full Name";
-  static const String textErrorPhoneNumber = "please Enter Valid Phone Number";
-  static const String textErrorEmail = "please Enter Valid Email Address";
+  static const String textErrorPhoneNumber = "Please Enter Valid Phone Number";
+  static const String textErrorEmail = "Please Enter Valid Email Address";
 
 }

@@ -5,7 +5,7 @@ import 'package:meet_well/utils/constants/string_constants.dart';
 
 import '../constants/color_constants.dart';
 
-class WidgetEditTextField extends StatefulWidget {
+class CustomTextField extends StatefulWidget {
   //String
   final String textFieldHint;
   final String? helperText;
@@ -34,7 +34,7 @@ class WidgetEditTextField extends StatefulWidget {
 
   final FocusNode? focusNode;
 
-  const WidgetEditTextField({
+  const CustomTextField({
     Key? key,
     required this.validator,
     required this.textFieldHint,
@@ -57,10 +57,10 @@ class WidgetEditTextField extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<WidgetEditTextField> createState() => _WidgetEditTextFieldState();
+  State<CustomTextField> createState() => _CustomTextFieldState();
 }
 
-class _WidgetEditTextFieldState extends State<WidgetEditTextField> {
+class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -78,7 +78,9 @@ class _WidgetEditTextFieldState extends State<WidgetEditTextField> {
           controller: widget.controller,
           style: const TextStyle(
               fontSize: NumberConstant.doubleFourteen,
-              fontWeight: FontWeight.w400),
+              fontWeight: FontWeight.w400,
+            color: blackColor,
+          ),
           decoration: InputDecoration(
               focusColor: textFormFieldElementsColor,
               labelStyle: const TextStyle(
@@ -98,7 +100,7 @@ class _WidgetEditTextFieldState extends State<WidgetEditTextField> {
               ),
               filled: widget.isFilled,
               hintStyle: const TextStyle(
-                  color: blackColor12,
+                  color: blackColor54,
                   fontSize: NumberConstant.doubleFourteen,
                   // fontFamily: StringConstant.fontIBMPlexMonoRegular,
                   fontWeight: FontWeight.w400),
