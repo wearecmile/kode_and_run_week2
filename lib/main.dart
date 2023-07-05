@@ -52,6 +52,7 @@ class MyApp extends StatelessWidget {
           routes.dashboard: (context) => const DashboardScreen(),
           routes.profileScreen: (context) => const ProfileDetailsScreen(),
           routes.homeScreen: (context) => const HomeScreen(),
+          routes.dashboard: (context) => const DashboardScreen(),
           login: (BuildContext context) => LoginScreen(),
         },
 

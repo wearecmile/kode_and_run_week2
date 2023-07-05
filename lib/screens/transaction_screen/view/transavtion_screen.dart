@@ -10,7 +10,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
   @override
   Widget build(BuildContext context) {
     return  Container(
-      child: Text("data"),
+
     );
   }
 }
