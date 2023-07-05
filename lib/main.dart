@@ -3,9 +3,12 @@ import 'package:meet_well/main/home_screen/home_screen.dart';
 import 'package:meet_well/main/provider/main_provider.dart';
 import 'package:meet_well/screens/dashboard_screen/controller/dashboard_screen_controller.dart';
 import 'package:meet_well/screens/dashboard_screen/view/dashboard_screen.dart';
+import 'package:meet_well/screens/group_details_screen/view/group_details_screen.dart';
 import 'package:meet_well/screens/login/view/login_screen.dart';
+import 'package:meet_well/screens/notification_screen/view/notification_screen.dart';
 import 'package:meet_well/screens/profile_details_screen/view/profile_details_screen.dart';
 import 'package:meet_well/screens/splash/view/splash_screen.dart';
+import 'package:meet_well/screens/transaction_screen/view/transavtion_screen.dart';
 import 'package:meet_well/utils/constants/string_constants.dart';
 import 'package:meet_well/utils/route/route.dart' as routes;
 import 'package:provider/provider.dart';
@@ -52,8 +55,10 @@ class MyApp extends StatelessWidget {
           routes.dashboard: (context) => const DashboardScreen(),
           routes.profileScreen: (context) => const ProfileDetailsScreen(),
           routes.homeScreen: (context) => const HomeScreen(),
-          routes.dashboard: (context) => const DashboardScreen(),
-          login: (BuildContext context) => LoginScreen(),
+          routes.transaction: (context) => const TransactionScreen(),
+          routes.notifications :(context) => const NotificationsScreen(),
+          routes.groupDetails:(context) => const GroupDetailsScreen(),
+          routes.login: (BuildContext context) => const LoginScreen(),
         },
 
         /// Passing Data as Arguments to screens

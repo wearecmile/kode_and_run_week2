@@ -19,7 +19,7 @@ bool isCaptain = StringConstant.boolTrue;
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
-  final List tabs = [
+  final List tabsList = [
     (
       title: StringConstant.textDashboard,
       icon: StringConstant.iconHome,
@@ -38,6 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
     ),
   ];
   var selectedeIndex;
+  @override
   void initState() {
     // TODO: implement initState
     selectedeIndex = NumberConstant.intZero;
@@ -71,13 +72,13 @@ class _HomeScreenState extends State<HomeScreen> {
             )
           : null,
       body: (selectedeIndex == NumberConstant.intZero)
-          ? DashboardScreen()
+          ? const DashboardScreen()
           : (selectedeIndex == NumberConstant.intOne)
-              ? TransactionScreen()
+              ? const TransactionScreen()
               : (selectedeIndex == NumberConstant.intTwo)
-                  ? NotificationsScreen()
+                  ? const NotificationsScreen()
                   : (selectedeIndex == NumberConstant.intThree)
-                      ? GroupDetailsScreen()
+                      ? const GroupDetailsScreen()
                       : null,
       floatingActionButton:
           (selectedeIndex == NumberConstant.intZero && isCaptain)
@@ -98,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
             selectedeIndex = index;
           });
         },
-        items: tabs.map((tab) {
+        items: tabsList.map((tab) {
           return BottomNavigationBarItem(
             backgroundColor: greycolor,
             icon: Icon(tab.icon,
