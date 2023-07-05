@@ -17,7 +17,7 @@ class StringConstant {
   static const String textError = "Error";
 
   static const String icMeetWellLogo = "assets/svg/ic_meet_well_logo.svg";
-  static const String logo = "assets/Meetwell_Logo.png";
+  static const String logo = "assets/images/meetwell_logo.png";
   static const bool boolTrue = true;
   static const bool boolFalse = false;
 
@@ -34,6 +34,7 @@ class StringConstant {
   //Json File
   static const String jsonDefaultGroup =
       "assets/dummy_json/dummy_json_file.json";
+  static const String jsonMeetingList = "assets/dummy_json/group_meeting_details.json";
 
   //Login Screen Constants
   static const String textPhoneNumber = 'Phone Number';
@@ -52,6 +53,7 @@ class StringConstant {
   //Screen Name
   static const String textDashboard = "Dashboard";
   static const String textTransactions = "Transactions";
+  static const String textProfile = "Profile";
   static const String textNotifications = "Notifications";
   static const String textGroupDetails = "Group Details";
   static const String textAddVisitor = "Add Visitor";
@@ -74,5 +76,6 @@ class StringConstant {
   static const String textErrorFees = "Meeting Fees should not be Empty";
   static const String textErrorGroupName = "Please Enter Group NAme";
 
-  static const String jsonMeetingList = "assets/group_meeting_details.json";
+  //fontFamily
+  static const String textFontFamilyPoppins = "poppins";
 }

@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-import '../../../main/navigation/bottomNavigation.dart';
+import '../../../utils/constants/string_constants.dart';
+import '../../../utils/widgets/appbar.dart';
 
-class Profile_details extends StatefulWidget {
-  const Profile_details({super.key});
+class ProfileDetailsScreen extends StatefulWidget {
+  const ProfileDetailsScreen({super.key});
 
   @override
-  State<Profile_details> createState() => _Profile_detailsState();
+  State<ProfileDetailsScreen> createState() => _ProfileDetailsScreenState();
 }
 bool isCaptain = true;
-class _Profile_detailsState extends State<Profile_details> {
+class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      bottomNavigationBar: bottomNavigation(),
+        appBar:Appbar(title:StringConstant.textProfile),
     );
   }
 }

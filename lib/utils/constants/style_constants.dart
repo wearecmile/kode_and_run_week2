@@ -33,8 +33,8 @@ class AppStyle {
         fontSize: NumberConstant.doubleTwenty, color: redColor);
   }
 
-  static textScedule() {
-    const TextStyle(
+  static textSchedule() {
+   return  const TextStyle(
       fontSize: NumberConstant.doubleTwentyFive,
     );
   }

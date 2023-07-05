@@ -5,7 +5,7 @@ import 'package:meet_well/screens/add_visitor/model/add_visitor_response.dart';
 import 'package:meet_well/utils/constants/api_constants.dart';
 import 'package:meet_well/utils/constants/number_constants.dart';
 
-class AddVisitorController extends ChangeNotifier {
+class AddVisitorScreenController extends ChangeNotifier {
   //TODO Static api calling for only validation
   Future<Object> AddVisitor(fullName, phoneNumber, fees) async {
     const url = ApiConstants.dummyBaseURL; // Replace with your API endpoint

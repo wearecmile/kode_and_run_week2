@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:meet_well/main/home_screen/home_screen.dart';
 import 'package:meet_well/main/provider/main_provider.dart';
-import 'package:meet_well/screens/dashboard_Screen/controller/dashboard_screen_controller.dart';
-import 'package:meet_well/screens/dashboard_Screen/view/dashboard_screen_view.dart';
 import 'package:meet_well/screens/add_visitor/controller/add_visitor_controller.dart';
 import 'package:meet_well/screens/add_visitor/view/add_visitor_view.dart';
-import 'package:meet_well/screens/group_details_screen/view/group_details_screen_view.dart';
+import 'package:meet_well/screens/dashboard_screen/controller/dashboard_screen_controller.dart';
+import 'package:meet_well/screens/dashboard_screen/view/dashboard_screen_view.dart';
 import 'package:meet_well/screens/login/view/login_screen.dart';
-import 'package:meet_well/screens/notification_screen/view/notification_screen_view.dart';
 import 'package:meet_well/screens/profile_details_screen/view/profile_details_screen_view.dart';
 import 'package:meet_well/screens/splash/view/splash_screen.dart';
-import 'package:meet_well/screens/transaction_screen/view/transavtion_screen_view.dart';
+import 'package:meet_well/utils/constants/string_constants.dart';
 import 'package:meet_well/utils/route/route.dart' as routes;
 import 'package:provider/provider.dart';
-import 'main/navigation/bottomNavigationController.dart';
 import 'screens/splash/controller/splash_screen_controller.dart';
 import 'utils/route/route.dart';
 
@@ -31,11 +29,8 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<MainProvider>(
           create: (context) => MainProvider(),
         ),
-        ChangeNotifierProvider<BottomNavigationController>(
-          create: (context) => BottomNavigationController(),
-        ),
-        ChangeNotifierProvider<AddVisitorController>(
-          create: (context) => AddVisitorController(),
+        ChangeNotifierProvider<AddVisitorScreenController>(
+          create: (context) => AddVisitorScreenController(),
         ),
         ChangeNotifierProvider<MainProvider>(
           create: (context) => MainProvider(),
@@ -47,10 +42,10 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        debugShowCheckedModeBanner: false,
+        debugShowCheckedModeBanner: StringConstant.boolFalse,
         theme: ThemeData(
-          fontFamily: 'poppins',
-          useMaterial3: true,
+          fontFamily: StringConstant.textFontFamilyPoppins,
+          useMaterial3: StringConstant.boolTrue,
           primarySwatch: Colors.blue,
         ),
 
@@ -58,12 +53,10 @@ class MyApp extends StatelessWidget {
 
         ///Routes
         routes: {
-          routes.dashboard: (context) => const Dashboard(),
-          routes.transactions: (context) => const Transaction(),
-          routes.notifications: (context) => const Notifications(),
-          routes.groupDetails: (context) => const Group_details(),
-          routes.profileScreen: (context) => const Profile_details(),
-          routes.addVisitor: (context) => const AddVisitor(),
+          routes.dashboard: (context) => const DashboardScreen(),
+          routes.profileScreen: (context) => const ProfileDetailsScreen(),
+          routes.addVisitor: (context) => const AddVisitorScreen(),
+          routes.homeScreen: (context) => const HomeScreen(),
           login: (BuildContext context) => LoginScreen(),
         },
 
@@ -80,7 +73,7 @@ class MyApp extends StatelessWidget {
         //   assert(false, 'Implementation ${settings.name}');
         //   return null;
         // },
-        home: const Dashboard(),
+        home: const SplashScreen(),
       ),
     );
   }

@@ -8,14 +8,14 @@ import '../../../utils/widgets/buttons.dart';
 import '../../../utils/widgets/texxtfeilds.dart';
 import '../controller/add_visitor_controller.dart';
 
-class AddVisitor extends StatefulWidget {
-  const AddVisitor({super.key});
+class AddVisitorScreen extends StatefulWidget {
+  const AddVisitorScreen({super.key});
 
   @override
-  State<AddVisitor> createState() => _AddVisitorState();
+  State<AddVisitorScreen> createState() => _AddVisitorScreenState();
 }
 
-class _AddVisitorState extends State<AddVisitor> {
+class _AddVisitorScreenState extends State<AddVisitorScreen> {
   @override
   Widget build(BuildContext context) {
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -80,7 +80,7 @@ class _AddVisitorState extends State<AddVisitor> {
                   buttonText: StringConstant.textAddButton,
                   onButtonTap: () {
                     if (formKey.currentState!.validate()) {
-                      Provider.of<AddVisitorController>(context,
+                      Provider.of<AddVisitorScreenController>(context,
                               listen: StringConstant.boolFalse)
                           .AddVisitor(
                               textEditingController.text,

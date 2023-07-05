@@ -7,14 +7,14 @@ import '../../../utils/widgets/appbar.dart';
 import '../../../utils/widgets/buttons.dart';
 import '../../../utils/widgets/texxtfeilds.dart';
 
-class GroupCreation extends StatefulWidget {
-  const GroupCreation({super.key});
+class GroupCreationScreen extends StatefulWidget {
+  const GroupCreationScreen({super.key});
 
   @override
-  State<GroupCreation> createState() => _GroupCreationState();
+  State<GroupCreationScreen> createState() => _GroupCreationScreenState();
 }
 
-class _GroupCreationState extends State<GroupCreation> {
+class _GroupCreationScreenState extends State<GroupCreationScreen> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController groupNameEditingController =
       TextEditingController();

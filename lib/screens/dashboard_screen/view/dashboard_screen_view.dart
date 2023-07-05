@@ -7,21 +7,20 @@ import 'package:meet_well/utils/constants/style_constants.dart';
 import 'package:meet_well/utils/route/route.dart' as routes;
 import 'package:provider/provider.dart';
 
-import '../../../main/navigation/bottomNavigation.dart';
 import '../../../utils/constants/color_constants.dart';
 import '../../../utils/constants/number_constants.dart';
 import '../controller/dashboard_screen_controller.dart';
 
-class Dashboard extends StatefulWidget {
-  const Dashboard({super.key});
+class DashboardScreen extends StatefulWidget {
+  const DashboardScreen({super.key});
   @override
-  State<Dashboard> createState() => _DashboardState();
+  State<DashboardScreen> createState() => _DashboardScreenState();
 }
 
-class _DashboardState extends State<Dashboard> {
+class _DashboardScreenState extends State<DashboardScreen> {
   List<Meeting> meetings = [];
   String groupName = StringConstant.textEmpty;
-  bool isCaptain = StringConstant.boolTrue;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -31,86 +30,50 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: whiteColor,
-      appBar: AppBar(
-        automaticallyImplyLeading: StringConstant.boolFalse,
-        backgroundColor: whiteColor,
-        title: Image.asset(StringConstant.logo),
-        centerTitle: StringConstant.boolTrue,
-        actions: [
+    return SingleChildScrollView(
+      physics: const AlwaysScrollableScrollPhysics(),
+      scrollDirection: Axis.vertical,
+      child: Column(
+        children: [
           Padding(
-            padding:
-                const EdgeInsets.only(right: NumberConstant.doubleSeventeen),
-            child: CircleAvatar(
-              backgroundColor: greycolor,
-              child: IconButton(
-                icon: const Icon(StringConstant.iconPerson),
-                onPressed: () {
-                  Navigator.pushReplacementNamed(context, routes.profileScreen);
-                },
-              ),
-            ),
+            padding: const EdgeInsets.fromLTRB(
+                NumberConstant.doubleTwentyFive,
+                NumberConstant.doubleTwelve,
+                NumberConstant.doubleZero,
+                NumberConstant.doubleTen),
+            child: Text(groupName,
+                maxLines: NumberConstant.intTwo,
+                style: AppStyle.displayGroupName()),
           ),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(
+                    NumberConstant.doubleTwelve,
+                    NumberConstant.doubleZero,
+                    NumberConstant.doubleZero,
+                    NumberConstant.doubleZero),
+                child: Text(
+                  StringConstant.textScheduledMeetings,
+                  style: AppStyle.textSchedule(),
+                ),
+              ),
+            ],
+          ),
+
+          (meetings.length > NumberConstant.intZero)
+              ? meetingCard()
+              : SizedBox(
+                  height: NumberConstant.doubleForty,
+                  child: Center(
+                      child: Text(
+                    StringConstant.textNoMeetings,
+                    style: AppStyle.errorNoMeeting(),
+                  ))),
+
+          //
         ],
       ),
-      body: SingleChildScrollView(
-        physics: const AlwaysScrollableScrollPhysics(),
-        scrollDirection: Axis.vertical,
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.start,
-          //crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(
-                  NumberConstant.doubleTwentyFive,
-                  NumberConstant.doubleTwelve,
-                  NumberConstant.doubleZero,
-                  NumberConstant.doubleTen),
-              child: Text(groupName,
-                  maxLines: NumberConstant.intTwo,
-                  style: AppStyle.displayGroupName()),
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(
-                      NumberConstant.doubleTwelve,
-                      NumberConstant.doubleZero,
-                      NumberConstant.doubleZero,
-                      NumberConstant.doubleZero),
-                  child: Text(
-                    StringConstant.textScheduledMeetings,
-                    style: AppStyle.textScedule(),
-                  ),
-                ),
-              ],
-            ),
-
-            (meetings.length > NumberConstant.intZero)
-                ? meetingCard()
-                : SizedBox(
-                    height: NumberConstant.doubleForty,
-                    child: Center(
-                        child: Text(
-                      StringConstant.textNoMeetings,
-                      style: AppStyle.errorNoMeeting(),
-                    ))),
-
-            //
-          ],
-        ),
-      ),
-      floatingActionButton: isCaptain
-          ? FloatingActionButton(
-              onPressed: () {},
-              backgroundColor: greycolor,
-              child: const Icon(StringConstant.iconAdd,
-                  color: listTextPrimaryColor,
-                  size: NumberConstant.doubleThirty),
-            )
-          : null,
-      bottomNavigationBar: const bottomNavigation(),
     );
   }
 

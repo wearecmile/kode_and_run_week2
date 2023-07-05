@@ -21,5 +21,5 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   // TODO: implement preferredSize
-  Size get preferredSize => const Size.fromHeight(60);
+  Size get preferredSize => const Size.fromHeight(NumberConstant.doubleSixty);
 }
