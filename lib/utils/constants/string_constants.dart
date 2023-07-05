@@ -18,6 +18,9 @@ class StringConstant {
   static const bool boolTrue = true;
   static const bool boolFalse = false;
 
+//ImageAssets
+  static const String icMeetWellLogoPng = "assets/png/meetwell_logo.png";
+
   //ImageAssets svg
   static const String icMeetWellLogo = "assets/svg/ic_meet_well_logo.svg";
 
@@ -46,5 +49,10 @@ class StringConstant {
   static const String textEdit = "Edit";
   static const String textFullName = "Full Name";
   static const String textEmail = "Email";
+
+  //errorMessages
+  static const String textErrorFullName = "Please Enter Full Name";
+  static const String textErrorPhoneNumber = "please Enter Valid Phone Number";
+  static const String textErrorEmail = "please Enter Valid Email Address";
 
 }

@@ -7,6 +7,8 @@ const whiteColor = Color(0xFFFFFFFF);
 const lightBlue = Colors.lightBlueAccent;
 const lightBlueColor = Colors.lightBlueAccent;
 const blackColor = Colors.black;
+const blackColor12 = Colors.black12;
+const blackColor26 = Colors.black26;
 const greyColor = Colors.grey;
 const transparentColor = Colors.transparent;
 const borderColor = Color(0xFFEAEAEA);
@@ -35,6 +37,7 @@ const postSubTitleTextColor = listTextSecondaryColor;
 const textBackGroundContainer = Color(0xff3a3a3a);
 const buttonColor = Color( 0xFFE8DEF8);
 const buttonBackGroundColor = Color(0xFFE6E0E9);
+const textFormFieldElementsColor = Color(0xFF6200EE);
 
 
 //home Bottom sheet

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:meet_well/screens/registration/controller/registration_controller.dart';
 import 'package:meet_well/utils/constants/number_constants.dart';
 import 'package:meet_well/utils/constants/string_constants.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
@@ -124,10 +123,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Form(
                     key: _phoneNumberValidation,
                     child: IntlPhoneField(
+                      cursorHeight: NumberConstant.doubleTwenty,
                       inputFormatters: formValidationMethod(
                           ValidationParamsEnum.phoneno.name),
                       flagsButtonPadding: const EdgeInsets.only(
-                          top: NumberConstant.doubleEighteen,
+                          top: NumberConstant.doubleTwentyThree,
                           bottom: NumberConstant.doubleEighteen),
                       controller: numberProvider?.phoneNumberController,
                       decoration: const InputDecoration(

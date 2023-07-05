@@ -46,7 +46,6 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
 
-
         ///Routes
         routes: <String, WidgetBuilder>{
           login: (BuildContext context) => LoginScreen(),

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:meet_well/utils/constants/number_constants.dart';
+import 'package:meet_well/utils/constants/string_constants.dart';
+
+import '../constants/color_constants.dart';
 
 class WidgetEditTextField extends StatefulWidget {
   //String
@@ -22,36 +26,35 @@ class WidgetEditTextField extends StatefulWidget {
   final TextEditingController? controller;
   final Widget? suffixIcon;
   final Widget? prefixIcon;
-  final Function onSubmitField;
   final Function? onChanged;
   final Function? onTap;
+  final String? Function(String?) validator;
 
   final List<TextInputFormatter>? inputFormatter;
 
   final FocusNode? focusNode;
 
-  const WidgetEditTextField(
-      {Key? key,
-        required this.textFieldHint,
-        required this.textInputType,
-        this.textInputAction = TextInputAction.next,
-        this.obscureText = false,
-        required this.controller,
-        this.suffixIcon,
-        this.prefixIcon,
-        this.maxLength,
-        required this.onSubmitField,
-        this.onChanged,
-        this.helperText,
-        this.isFilled = true,
-        this.isEnabled,
-        this.counterText,
-        this.isReadOnly,
-        this.inputFormatter,
-        this.focusNode,
-        this.onTap,
-      })
-      : super(key: key);
+  const WidgetEditTextField({
+    Key? key,
+    required this.validator,
+    required this.textFieldHint,
+    required this.textInputType,
+    this.textInputAction = TextInputAction.next,
+    this.obscureText = false,
+    required this.controller,
+    this.suffixIcon,
+    this.prefixIcon,
+    this.maxLength,
+    this.onChanged,
+    this.helperText,
+    this.isFilled = true,
+    this.isEnabled,
+    this.counterText,
+    this.isReadOnly,
+    this.inputFormatter,
+    this.focusNode,
+    this.onTap,
+  }) : super(key: key);
 
   @override
   State<WidgetEditTextField> createState() => _WidgetEditTextFieldState();
@@ -62,53 +65,49 @@ class _WidgetEditTextFieldState extends State<WidgetEditTextField> {
   Widget build(BuildContext context) {
     return Padding(
         padding: const EdgeInsets.only(
-          top: 10,
-          bottom: 10,
+          top: NumberConstant.doubleTen,
+          bottom: NumberConstant.doubleTen,
         ),
-        child: TextField(
-          cursorColor:  Color(0xFF6200EE),
+        child: TextFormField(
+          validator: widget.validator,
+          cursorColor: textFormFieldElementsColor,
           focusNode: widget.focusNode,
           inputFormatters: widget.inputFormatter,
-          readOnly: widget.isReadOnly ?? false,
+          readOnly: widget.isReadOnly ?? StringConstant.boolFalse,
           enabled: widget.isEnabled,
           controller: widget.controller,
           style: const TextStyle(
-              fontSize: 14,
-              // fontFamily: StringConstant.fontIBMPlexMonoRegular,
+              fontSize: NumberConstant.doubleFourteen,
               fontWeight: FontWeight.w400),
           decoration: InputDecoration(
-            focusColor:  Color(0xFF6200EE),
-              labelStyle: TextStyle(
-                color: Color(0xFF6200EE),
+              focusColor: textFormFieldElementsColor,
+              labelStyle: const TextStyle(
+                color: textFormFieldElementsColor,
               ),
-              enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.black12),
+              enabledBorder: const UnderlineInputBorder(
+                borderSide: BorderSide(color: blackColor12),
               ),
-              focusedBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Color(0xFF6200EE)),
+              focusedBorder: const UnderlineInputBorder(
+                borderSide: BorderSide(color: textFormFieldElementsColor),
               ),
               labelText: widget.textFieldHint,
-              counterText: "",
               contentPadding: const EdgeInsets.only(
-                top: 14,
-                bottom: 13,
-                left: 18,
+                top: NumberConstant.doubleFourteen,
+                bottom: NumberConstant.doubleThirteen,
+                left: NumberConstant.doubleEighteen,
               ),
               filled: widget.isFilled,
               hintStyle: const TextStyle(
-                  color: Colors.black12,
-                  fontSize: 14,
+                  color: blackColor12,
+                  fontSize: NumberConstant.doubleFourteen,
                   // fontFamily: StringConstant.fontIBMPlexMonoRegular,
                   fontWeight: FontWeight.w400),
               hintText: widget.textFieldHint,
-               fillColor: Colors.black12,
+              fillColor: blackColor12,
               suffixIcon: widget.suffixIcon,
               helperText: widget.helperText,
               prefixIcon: widget.prefixIcon),
           keyboardType: widget.textInputType,
-          onSubmitted: (value) {
-            widget.onSubmitField();
-          },
           obscureText: widget.obscureText,
           maxLength: widget.maxLength,
           onChanged: (value) {

@@ -6,12 +6,12 @@ import '../../../utils/constants/enum_constants.dart';
 import '../../../utils/constants/number_constants.dart';
 import '../../../utils/constants/string_constants.dart';
 import '../../../utils/constants/util.dart';
-import '../../../utils/widgets/custom_textfield.dart';
+import '../../../utils/widgets/custom_text_field.dart';
 import '../../login/controller/login_controller.dart';
 import '../controller/registration_controller.dart';
 
 class RegistrationScreen extends StatefulWidget {
-  RegistrationScreen({super.key});
+  const RegistrationScreen({super.key});
 
   @override
   State<RegistrationScreen> createState() => _RegistrationScreenState();
@@ -20,6 +20,7 @@ class RegistrationScreen extends StatefulWidget {
 class _RegistrationScreenState extends State<RegistrationScreen> {
   RegistrationController? registrationController;
   LoginController? loginController;
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
@@ -35,7 +36,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     ///(setState() or markNeedsBuild() called during build.) facing this error so put on WidgetsBinding.instance.addPostFrameCallback
     WidgetsBinding.instance.addPostFrameCallback((_) {
       registrationController?.numberController.text =
-          loginController?.number ?? "";
+          loginController?.number ?? StringConstant.textEmpty;
     });
   }
 
@@ -55,9 +56,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: transparentColor,
         title: const Text(StringConstant.textAddMemberDetail),
-        ///todo For User Edit Implement Later
+
+        ///todo For User Edit Implementation Later
         // actions: [
         //   InkWell(
         //     onTap: () {},
@@ -76,14 +78,15 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           const CircleAvatar(
             radius: NumberConstant.doubleEighty,
+
             ///its dummy for now
-            backgroundImage: AssetImage("assets/png/meetwell_logo.png"),
+            backgroundImage: AssetImage(StringConstant.icMeetWellLogoPng),
             child: Stack(children: [
               Align(
                 alignment: Alignment.bottomRight,
                 child: CircleAvatar(
                   radius: NumberConstant.doubleTwenty,
-                  backgroundColor: Colors.black26,
+                  backgroundColor: blackColor26,
                   child: Icon(Icons.edit),
                 ),
               ),
@@ -94,38 +97,71 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           Padding(
             padding: const EdgeInsets.all(NumberConstant.doubleEight),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                WidgetEditTextField(
-                  maxLength: NumberConstant.intFifty,
-                  textFieldHint: StringConstant.textFullName,
-                  textInputType: TextInputType.text,
-                  controller: registrationController?.nameController,
-                  onSubmitField: () {},
-                  inputFormatter:
-                      formValidationMethod(ValidationParamsEnum.name.name),
-                ),
-                WidgetEditTextField(
-                  maxLength: NumberConstant.intFifty,
-                  textFieldHint: StringConstant.textEmail,
-                  textInputType: TextInputType.emailAddress,
-                  controller: registrationController?.emailController,
-                  onSubmitField: () {},
-                  inputFormatter:
-                      formValidationMethod(ValidationParamsEnum.email.name),
-                ),
-                WidgetEditTextField(
-                  maxLength: NumberConstant.intTen,
-                  textFieldHint: StringConstant.textPhoneNumber,
-                  textInputType: TextInputType.phone,
-                  controller: registrationController?.numberController,
-                  onSubmitField: (value) {
-                  },
-                  inputFormatter:
-                      formValidationMethod(ValidationParamsEnum.phoneno.name),
-                ),
-              ],
+            child: Form(
+              key: _formKey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  WidgetEditTextField(
+                    maxLength: NumberConstant.intFifty,
+                    textFieldHint: StringConstant.textFullName,
+                    textInputType: TextInputType.text,
+                    controller: registrationController?.nameController,
+                    inputFormatter:
+                        formValidationMethod(ValidationParamsEnum.name.name),
+                    validator: (String? value) {
+                      if (value!.isEmpty) {
+                        return StringConstant.textErrorFullName;
+                      }
+                      return null;
+                    },
+                    onChanged: () {
+                      setState(() {
+                        _formKey.currentState!.validate();
+                      });
+                    },
+                  ),
+                  WidgetEditTextField(
+                    maxLength: NumberConstant.intFifty,
+                    textFieldHint: StringConstant.textEmail,
+                    textInputType: TextInputType.emailAddress,
+                    controller: registrationController?.emailController,
+                    inputFormatter:
+                        formValidationMethod(ValidationParamsEnum.email.name),
+                    validator: (String? value) {
+                      if (value!.isEmpty) {
+                        return StringConstant.textErrorEmail;
+                      }
+                      return null;
+                    },
+                    onChanged: () {
+                      setState(() {
+                        _formKey.currentState!.validate();
+                      });
+                    },
+                  ),
+                  WidgetEditTextField(
+                    maxLength: NumberConstant.intTen,
+                    textFieldHint: StringConstant.textPhoneNumber,
+                    textInputType: TextInputType.phone,
+                    controller: registrationController?.numberController,
+                    inputFormatter:
+                        formValidationMethod(ValidationParamsEnum.phoneno.name),
+                    validator: (String? value) {
+                      if (value!.isEmpty ||
+                          value.length != NumberConstant.intTen) {
+                        return StringConstant.textErrorPhoneNumber;
+                      }
+                      return null;
+                    },
+                    onChanged: () {
+                      setState(() {
+                        _formKey.currentState!.validate();
+                      });
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
           SizedBox(
@@ -135,6 +171,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ElevatedButton(
               onPressed: () {
                 ///Todo
+                if (_formKey.currentState!.validate()) {
+
+                }
               },
               style: ElevatedButton.styleFrom(
                   elevation: NumberConstant.doubleZero,
@@ -152,7 +191,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 child: Text(
                   StringConstant.textSubmit,
                   style: TextStyle(
-                    color: Colors.black,
+                    color: blackColor,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
