@@ -67,7 +67,7 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-     - assets/
+     - assets/images/
      - assets/svg/
      - assets/dummy_json/
   #   - images/a_dot_burr.jpeg

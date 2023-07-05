@@ -90,10 +90,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 context, routes.meetingDetailsScreen);
           },
           child: Padding(
-            padding: const EdgeInsets.all(NumberConstant.doubleTen),
-            child: Card(
-              elevation: NumberConstant.doubleFive,
-              color: greycolor,
+            padding: const EdgeInsets.only(
+                top: NumberConstant.doubleTen,
+                right: NumberConstant.doubleTen,
+                left: NumberConstant.doubleTen),
+            child: Container(
+              decoration: const BoxDecoration(
+                  color: greycolor,
+                  borderRadius: BorderRadius.all(
+                      Radius.circular(NumberConstant.doubleTen))),
               child: Padding(
                 padding: const EdgeInsets.all(NumberConstant.doubleSixteen),
                 child: Column(
