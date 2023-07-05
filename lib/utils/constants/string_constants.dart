@@ -48,6 +48,24 @@ class StringConstant {
 
 
   //Screen Name
+  //Json File
+  static const String jsonDefaultGroup = "assets/dummy_json/dummy_json_file.json";
+
+  //Login Screen Constants
+  static const String textPhoneNumber = 'Phone Number';
+  static const String textCountry = 'IN';
+  static const String textSubmit = "Submit";
+  static const String textPrivacyTermsConditions ="Privacy Policy,Terms & Conditions";
+  static const String textAddVisitor ="Add Visitor";
+  static const String textThePlatformOfMeeting = "The Platform of Meeting";
+  static const String textEnterYourMobile = "Enter Your Mobile";
+  static const String textNumber = "Number";
+  static const String textWeWillSendYouAVerification = "We Will Send You A Verification";
+  static const String textCode = "Code";
+ static const String textCountryCode ="+91";
+
+
+  //Screen Name
   static const String textDashboard = "Dashboard";
   static const String textTransactions = "Transactions";
   static const String textNotifications = "Notifications";
@@ -67,5 +85,6 @@ class StringConstant {
 
 
   static const String jsonMeetingList ="assets/group_meeting_details.json";
+
 }
 

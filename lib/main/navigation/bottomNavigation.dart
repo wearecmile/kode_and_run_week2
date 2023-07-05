@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meet_well/utils/constants/number_constants.dart';
 import 'package:meet_well/utils/constants/string_constants.dart';
 import '../../utils/constants/color_constants.dart';
 import 'package:provider/provider.dart';
@@ -17,18 +18,17 @@ class _bottomNavigationState extends State<bottomNavigation> {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       backgroundColor: whiteColor,
-      elevation: 0,
       showSelectedLabels: StringConstant.boolFalse,
 
-      currentIndex: Provider.of<BottomNavigationController>(context, listen: false).currentIndex,
+      currentIndex: Provider.of<BottomNavigationController>(context, listen: StringConstant.boolFalse).currentIndex,
       onTap: (index) {
-        Provider.of<BottomNavigationController>(context, listen: false).currentIndex = index;
-        Provider.of<BottomNavigationController>(context, listen: false).onTabChanged(index, context);
+        Provider.of<BottomNavigationController>(context, listen: StringConstant.boolFalse).currentIndex = index;
+        Provider.of<BottomNavigationController>(context, listen: StringConstant.boolFalse).onTabChanged(index, context);
       },
       items: Provider.of<BottomNavigationController>(context).tabs.map((tab) {
         return BottomNavigationBarItem(
           backgroundColor: greycolor,
-          icon: Icon(tab.icon , color: listTextPrimaryColor,size:38),
+          icon: Icon(tab.icon , color: listTextPrimaryColor,size:NumberConstant.doubleThirtyFive),
           label: tab.title,
         );
       }).toList(),
