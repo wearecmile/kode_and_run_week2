@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:meet_well/main/provider/main_provider.dart';
-import 'package:meet_well/screens/Dashboard_Screen/dashboard_screen_controller.dart';
-import 'package:meet_well/screens/Dashboard_Screen/dashboard_screen_view.dart';
+import 'package:meet_well/screens/dashboard_Screen/controller/dashboard_screen_controller.dart';
+import 'package:meet_well/screens/dashboard_Screen/view/dashboard_screen_view.dart';
 import 'package:meet_well/screens/add_visitor/controller/add_visitor_controller.dart';
 import 'package:meet_well/screens/add_visitor/view/add_visitor_view.dart';
-import 'package:meet_well/screens/group_creation_screen/view/group_creation_screen_view.dart';
 import 'package:meet_well/screens/group_details_screen/view/group_details_screen_view.dart';
 import 'package:meet_well/screens/login/view/login_screen.dart';
 import 'package:meet_well/screens/notification_screen/view/notification_screen_view.dart';
 import 'package:meet_well/screens/profile_details_screen/view/profile_details_screen_view.dart';
+import 'package:meet_well/screens/splash/view/splash_screen.dart';
 import 'package:meet_well/screens/transaction_screen/view/transavtion_screen_view.dart';
 import 'package:meet_well/utils/route/route.dart' as routes;
 import 'package:provider/provider.dart';
@@ -80,7 +80,7 @@ class MyApp extends StatelessWidget {
         //   assert(false, 'Implementation ${settings.name}');
         //   return null;
         // },
-        home: const GroupCreation(),
+        home: const Dashboard(),
       ),
     );
   }

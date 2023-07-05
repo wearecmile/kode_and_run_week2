@@ -16,7 +16,7 @@ class StringConstant {
   //Error Text
   static const String textError = "Error";
 
-  static const String icMeetWellLogo = " assets/svg/ic_meet_well_logo.svg";
+  static const String icMeetWellLogo = "assets/svg/ic_meet_well_logo.svg";
   static const String logo = "assets/Meetwell_Logo.png";
   static const bool boolTrue = true;
   static const bool boolFalse = false;
