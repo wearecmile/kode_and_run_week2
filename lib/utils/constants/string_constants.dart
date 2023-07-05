@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-
 class StringConstant {
+  //Texts
   static const String textEmpty = "";
   static const String textSpace = " ";
   static const String textTripleSpace = "   ";
@@ -16,21 +14,13 @@ class StringConstant {
   //Error Text
   static const String textError = "Error";
 
-  static const String icMeetWellLogo = " assets/svg/ic_meet_well_logo.svg";
-  static const String logo ="assets/Meetwell_Logo.png";
+  //Boolean constants
   static const bool boolTrue = true;
   static const bool boolFalse = false;
 
-  static const IconData iconPerson = Icons.person;
-  static const IconData iconAdd = Icons.add;
-  static const IconData iconHome = Icons.home_outlined;
-  static const IconData iconTransaction = Icons.currency_rupee_sharp;
-  static const IconData iconNotifications = Icons.notifications_none_rounded;
-  static const IconData icongroupdetails = Icons.groups_outlined;
+  //ImageAssets svg
+  static const String icMeetWellLogo = "assets/svg/ic_meet_well_logo.svg";
 
-  static const String textNoMeetings = "No Meetings are sceduled";
-  static const String textScheduledMeetings = "Scheduled Meetings";
-  static const String textLogin = "Login";
   //Json File
   static const String jsonDefaultGroup = "assets/dummy_json/dummy_json_file.json";
 
@@ -39,7 +29,7 @@ class StringConstant {
   static const String textCountry = 'IN';
   static const String textSubmit = "Submit";
   static const String textPrivacyTermsConditions ="Privacy Policy,Terms & Conditions";
-  static const String textAddVisitor ="Add Visitor";
+  static const String textLogin ="Login";
   static const String textThePlatformOfMeeting = "The Platform of Meeting";
   static const String textEnterYourMobile = "Enter Your Mobile";
   static const String textNumber = "Number";
@@ -50,11 +40,4 @@ class StringConstant {
 
   //Screen Name
   static const String textDashboard = "Dashboard";
-  static const String textTransactions = "Transactions";
-  static const String textNotifications = "Notifications";
-  static const String textGroupDetails = "Group Details";
-
-  static const String jsonMeetingList ="assets/group_meeting_details.json";
-
 }
-

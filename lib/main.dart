@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:meet_well/main/provider/main_provider.dart';
-import 'package:meet_well/screens/Dashboard_Screen/controller.dart';
-import 'package:meet_well/screens/Dashboard_Screen/view.dart';
-import 'package:meet_well/screens/group_details_screen/view.dart';
-import 'package:meet_well/screens/notification_screen/view.dart';
-import 'package:meet_well/screens/profile_details_screen/view.dart';
+import 'package:meet_well/screens/dashboard/dashboard_screen.dart';
+import 'package:meet_well/screens/login/login_screen.dart';
 import 'package:meet_well/screens/splash/view/splash_screen.dart';
-import 'package:meet_well/screens/transaction_screen/view.dart';
 import 'package:meet_well/utils/route/route.dart' as routes;
+import 'package:meet_well/utils/route/route.dart';
 import 'package:provider/provider.dart';
 import 'main/navigation/bottomNavigationController.dart';
 
@@ -28,35 +25,20 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<MainProvider>(
           create: (context) => MainProvider(),
         ),
-        ChangeNotifierProvider<BottomNavigationController>(
-          create: (context) => BottomNavigationController(),
-        ),
-        ChangeNotifierProvider<MainProvider>(
-          create: (context) => MainProvider(),
-        ),
         Provider<SplashScreenController>(
             create: (_) => SplashScreenController()),
-        ChangeNotifierProvider<DashboardScreenController>(
-          create: (context) => DashboardScreenController(),
+        ChangeNotifierProvider<LoginController>(
+          create: (context) => LoginController(),
         ),
       ],
       child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          fontFamily: 'poppins',
-          useMaterial3: true,
-          primarySwatch: Colors.blue,
-        ),
-
+        debugShowCheckedModeBanner: StringConstant.boolFalse,
         initialRoute: routes.splash,
 
         ///Routes
-        routes: {
-          routes.dashboard: (context) => const Dashboard(),
-          routes.transactions: (context) => const Transaction(),
-          routes.notifications: (context) => const Notifications(),
-          routes.groupDetails: (context) => const Group_details(),
-          routes.profileScreen: (context) => const Profile_details(),
+        routes: <String, WidgetBuilder>{
+          login: (BuildContext context) => LoginScreen(),
+          dashboard: (BuildContext context) => DashboardScreen()
         },
 
         /// Passing Data as Arguments to screens
