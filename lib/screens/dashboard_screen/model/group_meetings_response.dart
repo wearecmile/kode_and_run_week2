@@ -1,6 +1,4 @@
-import 'dart:convert';
-
-import '../../main/model/master/meeting.dart';
+import '../../../main/model/master/meeting.dart';
 
 class GroupMeetingResponse {
   String? status;

@@ -1,6 +1,8 @@
 class Visitor {
   String? id;
   String? fullName;
+  String? phoneNumber;
+  String? fees;
 
   Visitor({this.id, this.fullName});
 

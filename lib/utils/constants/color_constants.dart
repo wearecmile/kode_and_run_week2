@@ -38,7 +38,6 @@ const bottomBarBackgroundColor = Color(0x99000000);
 const postTitleTextColor = whiteColor;
 const postSubTitleTextColor = listTextSecondaryColor;
 const textBackGroundContainer = Color(0xff3a3a3a);
-const buttonColor = Color( 0xFFE8DEF8);
 
 
 //home Bottom sheet
@@ -61,7 +60,6 @@ extension HexColor on Color {
     buffer.write(hexString.replaceFirst('#', ''));
     return Color(int.parse(buffer.toString(), radix: 16));
   }
-
   /// Prefixes a hash sign if [leadingHashSign] is set to `true` (default is `true`).
   String toHex({bool leadingHashSign = true}) => '${leadingHashSign ? '#' : ''}'
       '${alpha.toRadixString(16).padLeft(2, '0')}'
