@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../main/navigation/bottomNavigation.dart';
+import '../../../main/navigation/bottomNavigation.dart';
 
 class Notifications extends StatefulWidget {
   const Notifications({super.key});

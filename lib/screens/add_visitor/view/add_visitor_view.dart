@@ -3,9 +3,9 @@ import 'package:meet_well/utils/constants/color_constants.dart';
 import 'package:meet_well/utils/constants/number_constants.dart';
 import 'package:meet_well/utils/constants/string_constants.dart';
 import 'package:provider/provider.dart';
-import '../../utils/widgets/buttons.dart';
-import '../../utils/widgets/texxtfeilds.dart';
-import 'controller.dart';
+import '../../../utils/widgets/buttons.dart';
+import '../../../utils/widgets/texxtfeilds.dart';
+import '../controller/add_visitor_controller.dart';
 
 class AddVisitor extends StatefulWidget {
   const AddVisitor({super.key});

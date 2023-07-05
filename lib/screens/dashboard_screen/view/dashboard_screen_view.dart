@@ -1,13 +1,16 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:meet_well/main/model/master/meeting.dart';
 import 'package:meet_well/utils/constants/string_constants.dart';
-import 'package:provider/provider.dart';
-import '../../main/navigation/bottomNavigation.dart';
-import '../../utils/constants/color_constants.dart';
-import '../../utils/constants/number_constants.dart';
-import 'controller.dart';
+import 'package:meet_well/utils/constants/style_constants.dart';
 import 'package:meet_well/utils/route/route.dart' as routes;
+import 'package:provider/provider.dart';
+
+import '../../../main/navigation/bottomNavigation.dart';
+import '../../../utils/constants/color_constants.dart';
+import '../../../utils/constants/number_constants.dart';
+import '../controller/dashboard_screen_controller.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -37,13 +40,14 @@ class _DashboardState extends State<Dashboard> {
         centerTitle: StringConstant.boolTrue,
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: NumberConstant.doubleSeventeen),
+            padding:
+                const EdgeInsets.only(right: NumberConstant.doubleSeventeen),
             child: CircleAvatar(
               backgroundColor: greycolor,
               child: IconButton(
                 icon: const Icon(StringConstant.iconPerson),
                 onPressed: () {
-                  Navigator.pushNamed(context, routes.profileScreen);
+                  Navigator.pushReplacementNamed(context, routes.profileScreen);
                 },
               ),
             ),
@@ -65,36 +69,32 @@ class _DashboardState extends State<Dashboard> {
                   NumberConstant.doubleTen),
               child: Text(groupName,
                   maxLines: NumberConstant.intTwo,
-                  style: const TextStyle(
-                    fontSize: NumberConstant.doubleThirty,
-                  )),
+                  style: AppStyle.displayGroupName()),
             ),
-            const Row(
+            Row(
               children: [
                 Padding(
-                  padding: EdgeInsets.fromLTRB(
+                  padding: const EdgeInsets.fromLTRB(
                       NumberConstant.doubleTwelve,
                       NumberConstant.doubleZero,
                       NumberConstant.doubleZero,
                       NumberConstant.doubleZero),
-                  child: Text(StringConstant.textScheduledMeetings,
-                      style: TextStyle(
-                        fontSize: NumberConstant.doubleTwentyFive,
-                      )),
+                  child: Text(
+                    StringConstant.textScheduledMeetings,
+                    style: AppStyle.textScedule(),
+                  ),
                 ),
               ],
             ),
 
             (meetings.length > NumberConstant.intZero)
                 ? meetingCard()
-                : const SizedBox(
+                : SizedBox(
                     height: NumberConstant.doubleForty,
                     child: Center(
                         child: Text(
                       StringConstant.textNoMeetings,
-                      style: TextStyle(
-                          fontSize: NumberConstant.doubleTwenty,
-                          color: redColor),
+                      style: AppStyle.errorNoMeeting(),
                     ))),
 
             //
@@ -123,7 +123,8 @@ class _DashboardState extends State<Dashboard> {
       itemBuilder: (context, index) {
         return InkWell(
           onTap: () {
-            Navigator.pushNamed(context, routes.meetingDetailsScreen);
+            Navigator.pushReplacementNamed(
+                context, routes.meetingDetailsScreen);
           },
           child: Padding(
             padding: const EdgeInsets.all(NumberConstant.doubleTen),
@@ -136,27 +137,20 @@ class _DashboardState extends State<Dashboard> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "${meetings[index].title}",
-                      style: const TextStyle(
-                          fontSize: NumberConstant.doubleTwenty),
-                    ),
+                    Text("${meetings[index].title}",
+                        style: AppStyle.meetingTitle()),
                     const SizedBox(height: NumberConstant.doubleTen),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Text(
                           "${meetings[index].date}",
-                          style: const TextStyle(
-                            fontSize: NumberConstant.doubleSixteen,
-                          ),
+                          style: AppStyle.meetingDateTimeLocation(),
                         ),
                         const SizedBox(width: NumberConstant.doubleTen),
                         Text(
                           "${meetings[index].time}",
-                          style: const TextStyle(
-                            fontSize: NumberConstant.doubleSixteen,
-                          ),
+                          style: AppStyle.meetingDateTimeLocation(),
                         ),
                       ],
                     ),
@@ -165,9 +159,7 @@ class _DashboardState extends State<Dashboard> {
                         const Icon(Icons.location_on_outlined),
                         Text(
                           "${meetings[index].location}",
-                          style: const TextStyle(
-                            fontSize: NumberConstant.doubleSixteen,
-                          ),
+                          style: AppStyle.meetingDateTimeLocation(),
                         )
                       ],
                     )
@@ -182,8 +174,9 @@ class _DashboardState extends State<Dashboard> {
   }
 
   void callGetAllMeetings() async {
-    Provider.of<DashboardScreenController>(context, listen: StringConstant.boolFalse)
-        .getMeetingDetails()
+    Provider.of<DashboardScreenController>(context,
+            listen: StringConstant.boolFalse)
+        .getMeetingDetails() // send group id
         .then((value) => {
               formatMeetings(value),
             })

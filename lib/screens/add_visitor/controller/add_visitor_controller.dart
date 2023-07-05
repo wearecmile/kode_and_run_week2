@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
-import 'package:meet_well/screens/add_visitor/add_visitor_response.dart';
+import 'package:meet_well/screens/add_visitor/model/add_visitor_response.dart';
 import 'package:meet_well/utils/constants/number_constants.dart';
 
 class AddVisitorController extends ChangeNotifier {

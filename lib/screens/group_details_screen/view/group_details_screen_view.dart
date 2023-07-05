@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../main/navigation/bottomNavigation.dart';
+import '../../../main/navigation/bottomNavigation.dart';
 
 class Group_details extends StatefulWidget {
   const Group_details({super.key});

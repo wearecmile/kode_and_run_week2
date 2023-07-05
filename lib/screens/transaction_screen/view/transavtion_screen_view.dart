@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../main/navigation/bottomNavigation.dart';
+import '../../../main/navigation/bottomNavigation.dart';
 
 class Transaction extends StatefulWidget {
   const Transaction({super.key});

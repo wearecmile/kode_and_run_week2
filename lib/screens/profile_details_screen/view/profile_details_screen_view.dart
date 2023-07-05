@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../main/navigation/bottomNavigation.dart';
+import '../../../main/navigation/bottomNavigation.dart';
 
 class Profile_details extends StatefulWidget {
   const Profile_details({super.key});
