@@ -82,6 +82,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             color: blackColor,
           ),
           decoration: InputDecoration(
+              counterText: StringConstant.textEmpty,
               focusColor: textFormFieldElementsColor,
               labelStyle: const TextStyle(
                 color: textFormFieldElementsColor,

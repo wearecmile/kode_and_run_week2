@@ -1,4 +1,5 @@
 import 'package:flutter/services.dart';
+import 'package:meet_well/utils/constants/string_constants.dart';
 
 import 'enum_constants.dart';
 
@@ -18,10 +19,17 @@ List<TextInputFormatter>? formValidationMethod(string) {
   } else if (string == ValidationParamsEnum.phoneno.name) {
     return [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))];
   }
+  return null;
 }
 
-
-bool isEmailValid(String email) {
-  final emailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+$');
-  return emailRegex.hasMatch(email);
+String? isEmailValid(String email) {
+  if (email.isEmpty) {
+    return StringConstant.textErrorEmail;
+  }
+  final emailRegex = RegExp(
+      r'^[\w-]+(\.[\w-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,})$');
+  if (!emailRegex.hasMatch(email)) {
+    return StringConstant.textErrorEmail;
+  }
+  return null;
 }

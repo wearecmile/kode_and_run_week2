@@ -53,9 +53,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               margin: EdgeInsets.zero,
-              color: Colors.white70,
+              color: whiteColor70,
               child: Container(
-                decoration: const BoxDecoration(color: Colors.transparent),
+                decoration: const BoxDecoration(color: transparentColor),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -130,10 +130,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       border: InputBorder.none,
                       contentPadding:
                           EdgeInsets.all(NumberConstant.doubleEight),
-                      fillColor: Colors.black12,
+                      fillColor: blackColor12,
                       filled: StringConstant.boolTrue,
                       enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey),
+                        borderSide: BorderSide(color: greyColor),
                       ),
                       labelText: StringConstant.textPhoneNumber,
                     ),
@@ -161,7 +161,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           StringConstant.boolFalse) {
                         if (numberProvider?.countryCode ==
                             StringConstant.textCountryCode) {
-                          Navigator.pushNamed(context, routes.dashboard);
+                          Navigator.pushNamed(context, routes.registration,
+                              arguments: ModalRoute.of(context)?.settings.name);
                         }
                       }
                     },
@@ -189,7 +190,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     NumberConstant.doublePointSixteen,
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  ///TODO implementing Privacy & Terms
+                },
                 child: Text(
                   StringConstant.textPrivacyTermsConditions,
                   style: AppStyle.termsAndConditionsTextStyle(),

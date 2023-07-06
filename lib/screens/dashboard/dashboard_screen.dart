@@ -18,7 +18,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
       appBar: AppBar(
         automaticallyImplyLeading: StringConstant.boolFalse,
         title: InkWell(
-            onTap: ()=> Navigator.pushNamed(context, routes.registration ),
+            onTap: () => Navigator.pushNamed(context, routes.registration,
+                arguments: ModalRoute.of(context)?.settings.name ??
+                    StringConstant.textEmpty),
             child: const Text(StringConstant.textDashboard)),
       ),
     );

@@ -20,6 +20,7 @@ class StringConstant {
 
 //ImageAssets
   static const String icMeetWellLogoPng = "assets/png/meetwell_logo.png";
+  static const String personLogoPng = "assets/png/person-placeholder.png";
 
   //ImageAssets svg
   static const String icMeetWellLogo = "assets/svg/ic_meet_well_logo.svg";
@@ -50,9 +51,17 @@ class StringConstant {
   static const String textFullName = "Full Name";
   static const String textEmail = "Email";
 
+  //Profile Screen
+  static const String textProfile = "Profile";
+  static const String textUpdate = "Update";
+
   //errorMessages
   static const String textErrorFullName = "Please Enter Full Name";
   static const String textErrorPhoneNumber = "Please Enter Valid Phone Number";
   static const String textErrorEmail = "Please Enter Valid Email Address";
+
+
+  //Font Family
+  static const String textFontPoppins = 'poppins';
 
 }
