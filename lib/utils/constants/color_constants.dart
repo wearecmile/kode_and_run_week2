@@ -6,7 +6,11 @@ const backgroundColor = Color(0xFF212332);
 const whiteColor = Color(0xFFFFFFFF);
 const lightBlue = Colors.lightBlueAccent;
 const lightBlueColor = Colors.lightBlueAccent;
+const whiteColor70 = Colors.white70;
 const blackColor = Colors.black;
+const blackColor12 = Colors.black12;
+const blackColor54 = Colors.black54;
+const blackColor26 = Colors.black26;
 const greyColor = Colors.grey;
 const transparentColor = Colors.transparent;
 const borderColor = Color(0xFFEAEAEA);
@@ -26,6 +30,7 @@ const whiteColorForProfile = Color(0x80FFFFFF);
 const whiteColorForProfileText = Color(0x85FFFFFF);
 const greyColorSplashScreenLogo = Color(0xFF212121);
 const purpleColor = Colors.purple;
+const blueColor=Colors.blue;
 const blueAccentColor = Colors.blueAccent;
 const gradientDarkBlue = Color(0xFF355A76);
 const gradientBlack = Color(0xFF222124);
@@ -34,6 +39,9 @@ const postTitleTextColor = whiteColor;
 const postSubTitleTextColor = listTextSecondaryColor;
 const textBackGroundContainer = Color(0xff3a3a3a);
 const buttonColor = Color( 0xFFE8DEF8);
+const buttonBackGroundColor = Color(0xFFE6E0E9);
+const textFormFieldElementsColor = Color(0xFF6200EE);
+
 
 //home Bottom sheet
 const bottomSheetStartColor = gradientDarkBlue;

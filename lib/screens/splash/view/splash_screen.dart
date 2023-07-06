@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
     _animationController = AnimationController(
-      duration: Duration(seconds: NumberConstant.intTen),
+      duration: const Duration(seconds: NumberConstant.intTen),
       vsync: this,
     );
     _animation = Tween<double>(begin: NumberConstant.doubleZero, end: NumberConstant.doubleOne).animate(
@@ -69,12 +69,11 @@ class _SplashScreenState extends State<SplashScreen>
           DefaultGroupResponse? defaultGroupResponse = snapshot.data;
           if (defaultGroupResponse?.data?.defaultGroup == null) {
             Future.delayed(Duration.zero, () {
-              Navigator.pushNamed(context, routes.login);
+              Navigator.pushReplacementNamed(context, routes.login);
             });
           } else {
             Future.delayed(Duration.zero, () {
-              // Navigator.pushNamed(context, routes.dashboard);
-              Navigator.pushNamed(context, routes.login);
+              Navigator.pushReplacementNamed(context, routes.dashboard);
             });
           }
           return Scaffold(

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meet_well/utils/constants/string_constants.dart';
+import 'package:meet_well/utils/route/route.dart' as routes;
+
 import 'package:provider/provider.dart';
 
 import '../login/controller/login_controller.dart';
@@ -15,7 +17,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: StringConstant.boolFalse,
-        title: const Text(StringConstant.textDashboard),
+        title: InkWell(
+            onTap: () => Navigator.pushNamed(context, routes.registration,
+                arguments: ModalRoute.of(context)?.settings.name ??
+                    StringConstant.textEmpty),
+            child: const Text(StringConstant.textDashboard)),
       ),
     );
   }
