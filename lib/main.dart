@@ -4,6 +4,7 @@ import 'package:meet_well/main/provider/main_provider.dart';
 import 'package:meet_well/screens/dashboard_screen/controller/dashboard_screen_controller.dart';
 import 'package:meet_well/screens/dashboard_screen/view/dashboard_screen.dart';
 import 'package:meet_well/screens/group_details_screen/view/group_details_screen.dart';
+import 'package:meet_well/screens/login/controller/login_controller.dart';
 import 'package:meet_well/screens/login/view/login_screen.dart';
 import 'package:meet_well/screens/notification_screen/view/notification_screen.dart';
 import 'package:meet_well/screens/profile_details_screen/view/profile_details_screen.dart';
@@ -34,6 +35,9 @@ class MyApp extends StatelessWidget {
         ),
         Provider<SplashScreenController>(
             create: (_) => SplashScreenController()),
+        ChangeNotifierProvider<LoginController>(
+          create: (context) => LoginController(),
+        ),
         ChangeNotifierProvider<DashboardScreenController>(
           create: (context) => DashboardScreenController(),
         ),

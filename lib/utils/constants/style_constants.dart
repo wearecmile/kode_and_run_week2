@@ -62,13 +62,13 @@ static verificationTextStyle() {
     );
   }
 
-  static textFormFeildLabel (){
+  static textFormFieldLabel (){
     return const TextStyle(
       color: buttonColor ,
     );
   }
 
-  static textFormFeild (){
+  static textFormField (){
     return const TextStyle(
         color: listTextPrimaryColor,
         fontSize: NumberConstant.doubleFourteen,

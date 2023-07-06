@@ -79,9 +79,9 @@ class _WidgetEditTextFieldState extends State<WidgetEditTextField> {
           readOnly: widget.isReadOnly ?? StringConstant.boolFalse,
           enabled: widget.isEnabled,
           controller: widget.controller,
-          style: AppStyle.textFormFeild(),
+          style: AppStyle.textFormField(),
           decoration: InputDecoration(
-              labelStyle:AppStyle.textFormFeildLabel(),
+              labelStyle:AppStyle.textFormFieldLabel(),
               enabledBorder: const UnderlineInputBorder(
                 borderSide: BorderSide(color:buttonBackGroundColor),
               ),
@@ -95,7 +95,7 @@ class _WidgetEditTextFieldState extends State<WidgetEditTextField> {
                 left: NumberConstant.doubleEighteen,
               ),
               filled: widget.isFilled,
-              hintStyle: AppStyle.textFormFeild(),
+              hintStyle: AppStyle.textFormField(),
               hintText: widget.textFieldHint,
               fillColor: buttonBackGroundColor,
               suffixIcon: widget.suffixIcon,

@@ -5,7 +5,7 @@ const secondaryColor = Color(0xFF2A2D3E);
 const backgroundColor = Color(0xFF212332);
 const whiteColor = Color(0xFFFFFFFF);
 const lightBlue = Colors.lightBlueAccent;
-const redColor =Colors.red;
+const redColor = Colors.red;
 
 const dividerColor = Color(0xFFEEEEEE);
 const greycolor = Color.fromRGBO(217, 217, 217, 1);
