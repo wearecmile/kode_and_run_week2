@@ -25,7 +25,7 @@ class AppStyle {
 
   static displayGroupName() {
     return const TextStyle(
-      fontSize: NumberConstant.doubleThirty,
+      fontSize: NumberConstant.doubleTwenty,
     );
   }
   static errorNoMeeting() {
@@ -35,7 +35,7 @@ class AppStyle {
 
   static textSchedule() {
    return  const TextStyle(
-      fontSize: NumberConstant.doubleTwentyFive,
+      fontSize: NumberConstant.doubleSixteen,
     );
   }
 

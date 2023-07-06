@@ -34,10 +34,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
       physics: const AlwaysScrollableScrollPhysics(),
       scrollDirection: Axis.vertical,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(
-                NumberConstant.doubleTwentyFive,
+                NumberConstant.doubleTwelve,
                 NumberConstant.doubleTwelve,
                 NumberConstant.doubleZero,
                 NumberConstant.doubleTen),
@@ -96,7 +98,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 left: NumberConstant.doubleTen),
             child: Container(
               decoration: const BoxDecoration(
-                  color: greycolor,
+                  color: buttonBackGroundColor,
                   borderRadius: BorderRadius.all(
                       Radius.circular(NumberConstant.doubleTen))),
               child: Padding(
@@ -125,9 +127,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     Row(
                       children: [
                         const Icon(Icons.location_on_outlined),
-                        Text(
-                          "${meetingsList[index].location}",
-                          style: AppStyle.meetingDateTimeLocation(),
+                        Expanded(
+                          child: Text(
+                            maxLines: NumberConstant.intThree,
+                            "${meetingsList[index].location}",
+                            style: AppStyle.meetingDateTimeLocation(),
+                          ),
                         )
                       ],
                     )

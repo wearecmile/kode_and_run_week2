@@ -4,21 +4,21 @@ import 'package:meet_well/utils/constants/style_constants.dart';
 import '../constants/color_constants.dart';
 import '../constants/number_constants.dart';
 
-class WidgetGradientBorderButton extends StatefulWidget {
+class WidgetButton extends StatefulWidget {
   final String buttonText;
   final Function onButtonTap;
 
-  const WidgetGradientBorderButton(
+  const WidgetButton(
       {Key? key, required this.buttonText, required this.onButtonTap})
       : super(key: key);
 
   @override
-  State<WidgetGradientBorderButton> createState() =>
-      _WidgetGradientBorderButtonState();
+  State<WidgetButton> createState() =>
+      _WidgetButtonState();
 }
 
-class _WidgetGradientBorderButtonState
-    extends State<WidgetGradientBorderButton> {
+class _WidgetButtonState
+    extends State<WidgetButton> {
   final kInnerDecoration = BoxDecoration(
     color: buttonBackGroundColor,
     borderRadius: BorderRadius.circular(NumberConstant.doubleFiftySeven),

@@ -29,7 +29,7 @@ class StringConstant {
   static const IconData icongroupdetails = Icons.groups_outlined;
 
   static const String textNoMeetings = "No Meetings are sceduled";
-  static const String textScheduledMeetings = "Scheduled Meetings";
+  static const String textScheduledMeetings = "Meetings";
   static const String textLogin = "Login";
   //Json File
   static const String jsonDefaultGroup =
@@ -72,7 +72,7 @@ class StringConstant {
 
   //errorMessages
   static const String textErrorFullName = "Please Enter Full Name";
-  static const String textErrorPhoneNumber = "please Enter Valid Phone Number";
+  static const String textErrorPhoneNumber = "Please Enter Valid Phone Number";
   static const String textErrorFees = "Meeting Fees should not be Empty";
   static const String textErrorGroupName = "Please Enter Group NAme";
 

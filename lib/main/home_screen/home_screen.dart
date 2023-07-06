@@ -50,6 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: whiteColor,
       appBar: (selectedeIndex == NumberConstant.intZero)
           ? AppBar(
+              elevation: NumberConstant.doubleZero,
               automaticallyImplyLeading: StringConstant.boolFalse,
               backgroundColor: whiteColor,
               title: Image.asset(StringConstant.logo),
