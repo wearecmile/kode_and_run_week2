@@ -20,7 +20,7 @@ class StringConstant {
 
 //ImageAssets
   static const String icMeetWellLogoPng = "assets/png/meetwell_logo.png";
-  static const String personLogoPng = "assets/png/person-placeholder.png";
+  static const String personLogoPng = "assets/png/person_placeholder.png";
 
   //ImageAssets svg
   static const String icMeetWellLogo = "assets/svg/ic_meet_well_logo.svg";

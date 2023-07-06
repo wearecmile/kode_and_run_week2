@@ -36,10 +36,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       registrationController?.numberController.text =
           loginController?.number ?? StringConstant.textEmpty;
-
       ///testing purpose
       registrationController?.nameController.text =
-          ModalRoute.of(context)?.settings.arguments.toString() ?? "";
+          ModalRoute.of(context)?.settings.arguments.toString() ?? StringConstant.textEmpty;
       if (ModalRoute.of(context)?.settings.arguments.toString() ==
           routes.login) {
         registrationController?.registrationScreenCall();
@@ -194,7 +193,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                   registrationController?.emailController,
                               inputFormatter: formValidationMethod(
                                   ValidationParamsEnum.email.name),
-                              validator: (value) => isEmailValid(value!),
+                              validator: (value) => isEmailValid(value ?? StringConstant.textEmpty),
                               onChanged: () {
                                 setState(() {
                                   _formKey.currentState?.validate();
