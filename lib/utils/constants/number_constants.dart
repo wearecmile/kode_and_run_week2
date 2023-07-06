@@ -137,6 +137,7 @@ class NumberConstant {
   static const double doubleTwenty = 20.0;
   static const double doubleTwentyOne = 21.0;
   static const double doubleTwentyTwo = 22.0;
+  static const double doubleTwentyThree = 23.0;
   static const double doubleTwentyFour = 24.0;
   static const double doubleTwentyFive = 25.0;
   static const double doubleTwentySix = 26.0;

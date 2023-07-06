@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 const primaryColor = Color(0xFF00ADEF);
-const redColor = Colors.red;
 const secondaryColor = Color(0xFF2A2D3E);
 const backgroundColor = Color(0xFF212332);
 const whiteColor = Color(0xFFFFFFFF);
@@ -13,12 +12,18 @@ const greycolor = Color.fromRGBO(217, 217, 217, 1);
 const listTextPrimaryColor = Color(0xff000000);
 const listTextSecondaryColor = Color(0xff2c2c2c);
 const lightBlueColor = Colors.lightBlueAccent;
+const whiteColor70 = Colors.white70;
 const blackColor = Colors.black;
+const blackColor12 = Colors.black12;
+const blackColor54 = Colors.black54;
+const blackColor26 = Colors.black26;
 const greyColor = Colors.grey;
 const transparentColor = Colors.transparent;
 const borderColor = Color(0xFFEAEAEA);
 const userEditProfileEmailTextColor = Color(0xFF5A5959);
-const listTextSecondaryColor2 = Color(0xff8A8A8D);
+const dividerColor = Color(0xFFEEEEEE);
+const listTextPrimaryColor = Color(0xff000000);
+const listTextSecondaryColor = Color(0xff8A8A8D);
 const gradientColorPink = Color(0xFFE900FF);
 const gradientColorBlue = Color(0xFF16E8FF);
 const loginTextFieldBorderColor = Color(0x33FFFFFF);
@@ -31,6 +36,7 @@ const whiteColorForProfile = Color(0x80FFFFFF);
 const whiteColorForProfileText = Color(0x85FFFFFF);
 const greyColorSplashScreenLogo = Color(0xFF212121);
 const purpleColor = Colors.purple;
+const blueColor=Colors.blue;
 const blueAccentColor = Colors.blueAccent;
 const gradientDarkBlue = Color(0xFF355A76);
 const gradientBlack = Color(0xFF222124);
@@ -38,6 +44,10 @@ const bottomBarBackgroundColor = Color(0x99000000);
 const postTitleTextColor = whiteColor;
 const postSubTitleTextColor = listTextSecondaryColor;
 const textBackGroundContainer = Color(0xff3a3a3a);
+const buttonColor = Color( 0xFFE8DEF8);
+const buttonBackGroundColor = Color(0xFFE6E0E9);
+const textFormFieldElementsColor = Color(0xFF6200EE);
+
 
 
 //home Bottom sheet
@@ -60,6 +70,7 @@ extension HexColor on Color {
     buffer.write(hexString.replaceFirst('#', ''));
     return Color(int.parse(buffer.toString(), radix: 16));
   }
+
   /// Prefixes a hash sign if [leadingHashSign] is set to `true` (default is `true`).
   String toHex({bool leadingHashSign = true}) => '${leadingHashSign ? '#' : ''}'
       '${alpha.toRadixString(16).padLeft(2, '0')}'
