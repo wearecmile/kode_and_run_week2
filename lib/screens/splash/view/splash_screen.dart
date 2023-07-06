@@ -73,7 +73,7 @@ class _SplashScreenState extends State<SplashScreen>
             });
           } else {
             Future.delayed(Duration.zero, () {
-              Navigator.pushReplacementNamed(context, routes.dashboard);
+              Navigator.pushReplacementNamed(context, routes.homeScreen);
             });
           }
           return Scaffold(

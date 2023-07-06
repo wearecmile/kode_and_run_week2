@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'color_constants.dart';
 import 'number_constants.dart';
 
 class AppStyle{
@@ -60,13 +61,6 @@ static verificationTextStyle() {
       fontWeight: FontWeight.bold,
     );
   }
-  static buttonTextStyle (){
-    return const TextStyle(
-        color: listTextPrimaryColor,
-        fontSize: NumberConstant.doubleTwenty,
-        fontWeight: FontWeight.w600);
-  }
-
 
   static textFormFeildLabel (){
     return const TextStyle(
