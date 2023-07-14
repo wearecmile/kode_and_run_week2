@@ -1,6 +1,5 @@
 # meet_well
-
-A new Flutter project.
+The desigfn Pattern used here is Strategy. i have made one main class named as homescreen which contains bottom navigation bar. now the selection on the screen is in user's hand so this is runtime. Here within the home class the algorithms i.e. different classes/Screen will be called on basis of what user select in runtime environment.  
 
 ## Getting Started
 
